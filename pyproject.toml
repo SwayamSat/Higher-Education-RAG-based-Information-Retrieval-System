@@ -1,0 +1,11 @@
+[project]
+name = "smart-retrieval-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "pdfplumber>=0.11.9",
+    "requests>=2.32.5",
+]

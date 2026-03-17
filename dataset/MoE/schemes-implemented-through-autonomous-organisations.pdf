@@ -1,0 +1,666 @@
+
+ ﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="canonical" href="/en/schemes-implemented-through-autonomous-organisations" />
+<link rel="shortlink" href="/en/node/179" />
+<link rel="alternate stylesheet" type="text/css" title="." href="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/style2.css" />
+<link rel="alternate stylesheet" type="text/css" title="," href="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/style.css" />
+<link rel="shortcut icon" href="https://www.education.gov.in/sites/upload_files/mhrd/files/favicon_0.ico" type="image/vnd.microsoft.icon" />
+<script type="text/javascript" src="https://www.education.gov.in/misc/jquery.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/jquery.once.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/drupal.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.effects.core.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.accordion.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.button.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.mouse.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.draggable.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.position.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.resizable.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ui/jquery.ui.dialog.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/views/js/jquery.ui.dialog.patch.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/nice_menus/js/jquery.bgiframe.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/nice_menus/js/jquery.hoverIntent.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/nice_menus/js/superfish.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/nice_menus/js/nice_menus.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/ajax.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/styleswitcher/styleswitcher.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/back_to_top/js/back_to_top.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/extlink/extlink.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/accordion_blocks/accordion_init.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/libraries/colorbox/colorbox/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/colorbox/js/colorbox.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/colorbox/js/colorbox_load.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/colorbox/js/colorbox_inline.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/colorbox/js/colorbox_login.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/dhtml_menu/dhtml_menu.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/event_calendar/event_popup/js/event_popup.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/event_calendar/event_popup/js/event_popup_validate.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/lightbox2/js/auto_image_handling.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/lightbox2/js/lightbox.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+  var textsizeCookieExpires = 3650;
+  var textsizeCookieDomain = "/";
+  var textsizeElement = "body";
+  var textsizeElementClass = "";
+  var textsizeIncrement = 25;
+  var textsizeNormal = 100;
+  var textsizeMinimum = 50;
+  var textsizeMaximum = 200;
+  var textsizeIncrementDisplay = 25;
+  var textsizeNormalDisplay = 100;
+  var textsizeDisplay = 1;
+  var textsizeMinT = "<abbr title=\"Minimum\" class=\"textsize\">Min.</abbr> ";
+  var textsizeMaxT = "<abbr title=\"Maximum\" class=\"textsize\">Max.</abbr> ";
+  var textsizeCurrentText = "Current Size";
+  var textsizeReset = 1;
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/textsize/jquery.textsize.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/custom_search/js/custom_search.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery(document).ready(function () { Drupal.styleSwitcher.defaultStyle(); });
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.education.gov.in/misc/progress.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/modules/colorbox_node/colorbox_node.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/jcarousel.responsive.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/demo/demo.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/common/modernizr.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/jquery.sticky.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/custom.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/wow.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/skdslider/src/skdslider.js"></script>
+<script type="text/javascript" src="https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/js/skdslider/src/skdslider.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"en\/","ajaxPageState":{"theme":"nexus_he","theme_token":"pbKK6E58DykVdfBnkkjVVcBMmVcnI_mru461vSo02BE","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/jquery.cookie.js":1,"misc\/ui\/jquery.ui.core.min.js":1,"misc\/ui\/jquery.ui.widget.min.js":1,"misc\/ui\/jquery.effects.core.min.js":1,"misc\/ui\/jquery.ui.accordion.min.js":1,"misc\/ui\/jquery.ui.button.min.js":1,"misc\/ui\/jquery.ui.mouse.min.js":1,"misc\/ui\/jquery.ui.draggable.min.js":1,"misc\/ui\/jquery.ui.position.min.js":1,"misc\/ui\/jquery.ui.resizable.min.js":1,"misc\/ui\/jquery.ui.dialog.min.js":1,"sites\/education.gov.in\/modules\/views\/js\/jquery.ui.dialog.patch.js":1,"sites\/education.gov.in\/modules\/nice_menus\/js\/jquery.bgiframe.js":1,"sites\/education.gov.in\/modules\/nice_menus\/js\/jquery.hoverIntent.js":1,"sites\/education.gov.in\/modules\/nice_menus\/js\/superfish.js":1,"sites\/education.gov.in\/modules\/nice_menus\/js\/nice_menus.js":1,"misc\/ajax.js":1,"sites\/education.gov.in\/modules\/styleswitcher\/styleswitcher.js":1,"sites\/education.gov.in\/modules\/back_to_top\/js\/back_to_top.js":1,"sites\/education.gov.in\/modules\/extlink\/extlink.js":1,"sites\/education.gov.in\/modules\/accordion_blocks\/accordion_init.js":1,"sites\/education.gov.in\/libraries\/colorbox\/colorbox\/jquery.colorbox-min.js":1,"sites\/education.gov.in\/modules\/colorbox\/js\/colorbox.js":1,"sites\/education.gov.in\/modules\/colorbox\/js\/colorbox_load.js":1,"sites\/education.gov.in\/modules\/colorbox\/js\/colorbox_inline.js":1,"sites\/education.gov.in\/modules\/colorbox\/js\/colorbox_login.js":1,"sites\/education.gov.in\/modules\/dhtml_menu\/dhtml_menu.js":1,"sites\/education.gov.in\/modules\/event_calendar\/event_popup\/js\/event_popup.js":1,"sites\/education.gov.in\/modules\/event_calendar\/event_popup\/js\/event_popup_validate.js":1,"sites\/education.gov.in\/modules\/lightbox2\/js\/auto_image_handling.js":1,"sites\/education.gov.in\/modules\/lightbox2\/js\/lightbox.js":1,"0":1,"sites\/education.gov.in\/modules\/textsize\/jquery.textsize.js":1,"sites\/education.gov.in\/modules\/custom_search\/js\/custom_search.js":1,"1":1,"misc\/progress.js":1,"sites\/education.gov.in\/modules\/colorbox_node\/colorbox_node.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/jcarousel.responsive.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/jquery.jcarousel.min.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/jquery.min.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/bootstrap.min.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/demo\/demo.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/common\/modernizr.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/jquery.sticky.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/custom.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/wow.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/jquery-3.6.1.min.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/skdslider\/src\/skdslider.js":1,"sites\/education.gov.in\/themes\/nexus_he\/js\/skdslider\/src\/skdslider.min.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"misc\/ui\/jquery.ui.button.css":1,"misc\/ui\/jquery.ui.resizable.css":1,"misc\/ui\/jquery.ui.dialog.css":1,"sites\/education.gov.in\/modules\/calendar\/css\/calendar_multiday.css":1,"sites\/education.gov.in\/modules\/colorbox_node\/colorbox_node.css":1,"sites\/education.gov.in\/modules\/date\/date_api\/date.css":1,"sites\/education.gov.in\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/education.gov.in\/modules\/field_hidden\/field_hidden.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/education.gov.in\/modules\/extlink\/extlink.css":1,"sites\/education.gov.in\/modules\/views\/css\/views.css":1,"sites\/education.gov.in\/modules\/back_to_top\/css\/back_to_top.css":1,"sites\/education.gov.in\/modules\/accordion_blocks\/accordion_init.css":1,"sites\/cmsmhrd.nic.in\/libraries\/colorbox\/example5\/colorbox.css":1,"sites\/education.gov.in\/modules\/ctools\/css\/ctools.css":1,"sites\/education.gov.in\/modules\/dhtml_menu\/dhtml_menu.css":1,"sites\/education.gov.in\/modules\/event_calendar\/event_popup\/css\/event_popup.css":1,"sites\/education.gov.in\/modules\/lightbox2\/css\/lightbox.css":1,"0":1,"sites\/education.gov.in\/modules\/textsize\/textsize.css":1,"modules\/locale\/locale.css":1,"sites\/education.gov.in\/modules\/nice_menus\/css\/nice_menus.css":1,"sites\/education.gov.in\/modules\/nice_menus\/css\/nice_menus_default.css":1,"sites\/education.gov.in\/modules\/custom_search\/custom_search.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/bootstrap.min.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/bootstrap.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/font-awesome.min.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/demo.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/animate.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/inner.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/timeline.css":1,"sites\/education.gov.in\/themes\/nexus_he\/style.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/skdslider.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/hover.css":1,"sites\/education.gov.in\/themes\/nexus_he\/css\/jcarousel.responsive.css":1,"sites\/education.gov.in\/themes\/nexus_he\/system.menus.css":1,"sites\/education.gov.in\/themes\/nexus_he\/menus.css":1,"sites\/education.gov.in\/themes\/nexus_he\/system.theme.css":1,"sites\/education.gov.in\/themes\/nexus_he\/search.css":1,"sites\/education.gov.in\/themes\/nexus_he\/system.base.css":1}},"encrypt_submissions":{"baseUrl":"https:\/\/www.education.gov.in"},"colorbox":{"transition":"fade","speed":"350","opacity":"0.85","slideshow":false,"slideshowAuto":true,"slideshowSpeed":"6000","slideshowStart":"start slideshow","slideshowStop":"stop slideshow","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","overlayClose":true,"maxWidth":"90%","maxHeight":"90%","initialWidth":"","initialHeight":"","fixed":true,"scrolling":false,"__drupal_alter_by_ref":["sites\/cmsmhrd.nic.in\/libraries\/colorbox\/example5"]},"dhtmlMenu":{"nav":"hover","animation":{"effects":{"opacity":"opacity","height":0,"width":0},"speed":"500"},"effects":{"siblings":"none","children":"close-children","remember":"0"},"filter":{"type":"whitelist","list":{"main-menu":"main-menu","menu--menu-book-promotion":"menu--menu-book-promotion","menu-about-mhrd-menu":"menu-about-mhrd-menu","menu-abt-mhrd":"menu-abt-mhrd","menu-adult-education":"menu-adult-education","menu-adult-education-hindi":"menu-adult-education-hindi","menu-book-promotion":"menu-book-promotion","menu-cabinet-minister":"menu-cabinet-minister","menu-complaints-committee":"menu-complaints-committee","menu-elementary-education":"menu-elementary-education","menu-elementary-education-hindi":"menu-elementary-education-hindi","menu-insti":"menu-insti","menu-institutions":"menu-institutions","menu-international-cooperation-c":"menu-international-cooperation-c","menu-language-education":"menu-language-education","menu-menu-international":"menu-menu-international","menu-menu-language-education-hi":"menu-menu-language-education-hi","menu-ministers":"menu-ministers","menu-principal-cca":"menu-principal-cca","menu-rashtriya-avishkar-abhiyan":"menu-rashtriya-avishkar-abhiyan","menu-right-to-information-act-20":"menu-right-to-information-act-20","menu-rti-act-2005-hindi":"menu-rti-act-2005-hindi","menu-secondary-education":"menu-secondary-education","menu-secondary-education-hindi":"menu-secondary-education-hindi","menu-technical-education":"menu-technical-education","menu-technical-education-hindi":"menu-technical-education-hindi","menu-university-and-he-hindi":"menu-university-and-he-hindi","menu-university-and-higher-educa":"menu-university-and-higher-educa","menu-update":"menu-update","menu-updates":"menu-updates","menu-who-s-who":"menu-who-s-who","menu-who-s-who-hindi":"menu-who-s-who-hindi","":0,"management":0,"menu-about-ministry-hrd":0,"menu-about-ministry-of-hrd":0,"menu-accessibility-statement":0,"menu-accessibility-statement-hin":0,"menu-act-rule":0,"menu-acts-and-rules":0,"menu-admin-menu":0,"menu-adolescence-education-progr":0,"menu-audio-video":0,"menu-consultation-summary":0,"menu-dbt-hi":0,"menu-department-of-higher-educat":0,"menu-department-of-school-educat":0,"menu-departments":0,"menu-dept-higher-education":0,"menu-direct-benefit-transfer":0,"menu-distance-learning":0,"menu-distancelearning":0,"menu-e---governance":0,"menu-e-governance-hindi":0,"menu-external-scholarship":0,"menu-external-scholarships":0,"menu-externally-aided-projects-i":0,"menu-footer-menu":0,"menu-fotter-menu-hindi":0,"menu-girls-hostel":0,"menu-girls-hostel-hindi":0,"menu-grant-in-aid":0,"menu-higher-education-menu":0,"menu-ict":0,"menu-iedss":0,"menu-iedss-hindi":0,"menu-incentives-to-girls":0,"menu-knowledge-for-development":0,"menu-language-teachers":0,"menu-major-ict-initiatives":0,"menu-menu-externally":0,"menu-menu-technology-enabled--hi":0,"menu-mhrd-admin":0,"menu-ministry-insti":0,"menu-minority-education":0,"menu-minority-education-hindi":0,"menu-model-school":0,"menu-model-school-hindi":0,"menu-multimedia":0,"menu-nepmenu":0,"menu-new-education-policy":0,"menu-nmcmss":0,"menu-nptel":0,"menu-parliament-q-a":0,"menu-parliament-q-and-a-hindi":0,"menu-photo-gall":0,"menu-photo-gallery":0,"menu-policy-initiatives":0,"menu-rashtriya-madhyamik-shiksha":0,"menu-regulatory-bodies":0,"menu-regulatory-body":0,"menu-report":0,"menu-rmsa-hi":0,"menu-rusa":0,"menu-rusa-hindi":0,"menu-sandhi":0,"menu-schemes":0,"menu-schemes-hi":0,"menu-scholarships":0,"menu-scholarships-education-loan":0,"menu-school-education":0,"menu-school-education-and-litera":0,"menu-school-education-hindi":0,"menu-teacher-education":0,"menu-teacher-education-hindi":0,"menu-technology-enabled-learning":0,"menu-tenders":0,"menu-user-account-menu":0,"menu-vocational-education":0,"menu-vocational-education-hindi":0,"menu-vocationalisation-of-second":0,"navigation":0,"textsize":0,"user-menu":0}}},"event_popup":{"classes":"","defaults":"width:300;height:auto;position:[center,60]","selector":"content","content_type":"event_calendar","op":false},"jcarousel":{"ajaxPath":"\/en\/jcarousel\/ajax\/views"},"lightbox2":{"rtl":"0","file_path":"\/(\\w\\w\/)public:\/","default_image":"\/sites\/education.gov.in\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":5,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":1,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":0,"disable_resize":1,"disable_zoom":1,"force_show_nav":0,"show_caption":1,"loop_items":0,"node_link_text":"View Image Details","node_link_target":0,"image_count":"Image !current of !total","video_count":"Video !current of !total","page_count":"Page !current of !total","lite_press_x_close":"press \u003Ca href=\u0022#\u0022 onclick=\u0022hideLightbox(); return FALSE;\u0022\u003E\u003Ckbd\u003Ex\u003C\/kbd\u003E\u003C\/a\u003E to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"(\\.thumbnail)","trigger_lightbox_classes":"img.inline,img.ImageFrame_image,img.ImageFrame_none,img.image-img_assist_custom","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"img.thumbnail, img.image-thumbnail","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":0,"custom_trigger_classes":"","disable_for_gallery_lists":0,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":1,"slideshow_automatic_exit":1,"show_play_pause":1,"pause_on_next_click":1,"pause_on_previous_click":1,"loop_slides":1,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":0},"custom_search":{"form_target":"_self","solr":0},"styleSwitcher":{"enableOverlay":1,"defaultStyle":null},"nice_menus_options":{"delay":"800","speed":"slow"},"back_to_top":{"back_to_top_button_trigger":"100","back_to_top_prevent_on_mobile":1,"back_to_top_prevent_in_admin":1,"back_to_top_button_type":"image","back_to_top_button_text":"Back to top","#attached":{"library":[["system","ui"]]}},"extlink":{"extTarget":"_blank","extClass":"ext","extLabel":"(link is external)","extImgClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":"_blank","extAlertText":"This link will take you to an external website.\r\n\u092f\u0939 \u0932\u093f\u0902\u0915 \u0906\u092a\u0915\u094b \u090f\u0915 \u092c\u093e\u0939\u0930\u0940 \u0935\u0947\u092c\u0938\u093e\u0907\u091f \u092a\u0930 \u0932\u0947 \u091c\u093e\u090f\u0917\u093e\u0964","mailtoClass":0,"mailtoLabel":"(link sends e-mail)"},"urlIsAjaxTrusted":{"\/en\/schemes-implemented-through-autonomous-organisations":true}});
+//--><!]]>
+</script>
+<style type="text/css" media="all">
+@import url("https://www.education.gov.in/modules/system/system.messages.css");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.education.gov.in/misc/ui/jquery.ui.core.css");
+@import url("https://www.education.gov.in/misc/ui/jquery.ui.theme.css");
+@import url("https://www.education.gov.in/misc/ui/jquery.ui.accordion.css");
+@import url("https://www.education.gov.in/misc/ui/jquery.ui.button.css");
+@import url("https://www.education.gov.in/misc/ui/jquery.ui.resizable.css");
+@import url("https://www.education.gov.in/misc/ui/jquery.ui.dialog.css");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/calendar/css/calendar_multiday.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/colorbox_node/colorbox_node.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/date/date_api/date.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/date/date_popup/themes/datepicker.1.7.css");
+@import url("https://www.education.gov.in/modules/field/theme/field.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/field_hidden/field_hidden.css");
+@import url("https://www.education.gov.in/modules/node/node.css");
+@import url("https://www.education.gov.in/modules/user/user.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/extlink/extlink.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/views/css/views.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/back_to_top/css/back_to_top.css");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/accordion_blocks/accordion_init.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/ctools/css/ctools.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/dhtml_menu/dhtml_menu.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/event_calendar/event_popup/css/event_popup.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/lightbox2/css/lightbox.css");
+</style>
+<style type="text/css" media="screen">
+<!--/*--><![CDATA[/*><!--*/
+body{font-size:100%  !important;}body.textsize-75{font-size:75% !important;}body.textsize-100{font-size:100% !important;}body.textsize-125{font-size:125% !important;}
+
+/*]]>*/-->
+</style>
+<style type="text/css" media="all">
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/textsize/textsize.css");
+@import url("https://www.education.gov.in/modules/locale/locale.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/nice_menus/css/nice_menus.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/nice_menus/css/nice_menus_default.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/modules/custom_search/custom_search.css");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/bootstrap.min.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/bootstrap.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/font-awesome.min.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/demo.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/animate.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/inner.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/timeline.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/style.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/skdslider.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/hover.css");
+@import url("https://www.education.gov.in/sites/education.gov.in/themes/nexus_he/css/jcarousel.responsive.css");
+</style>
+
+<title>Department of Higher Education |  Government of India, Ministry of Education</title>
+
+<meta name="title" content="Ministry of Education, Department of Higher Education">
+	<meta name="description" content="The Department of Higher Education, MHRD, is responsible for the overall development of the basic infrastructure of Higher Education sector, both in terms of policy and planning. Under a planned development process, the Department looks after expansion of access and qualitative improvement in the Higher Education, through world class Universities, Colleges and other Institutions.">
+  <meta name="keywords" content="Home, MoE, Ministry of Education, Department of Higher Education, HE, Dept. HE, MHRD HE, MoHRD HE, MoHRD Highr Education, Education, Ministry of Human Resource Development, Ministry of HRD, MoHRD, MHRD, Education Ministry, Ministry of Human Resource Developemnt GoI, Ministry of Human Resource Developemnt Government of India, HRD, Human Resource Development, Shastri Bhawan">
+  <meta name="author" content="NIC, Laxminarayan Prajapati">
+
+<link href='/sites/education.gov.in/themes/nexus/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+<link href='/sites/education.gov.in/themes/nexus/css/font-awesome_42.css' rel='stylesheet' type='text/css'>
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=809225772483402";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({delay:5000, animationSpeed: 2000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+			jQuery('#demo2').skdslider({delay:5000, animationSpeed: 1000,showNextPrev:true,showPlayButton:false,autoSlide:true,animationType:'sliding'});
+			jQuery('#demo3').skdslider({delay:5000, animationSpeed: 2000,showNextPrev:true,showPlayButton:true,autoSlide:true,animationType:'fading'});
+			
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			  $(window).trigger('resize');
+			});
+			
+		});
+</script>
+
+                              <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="8PCB5-AKPXS-U2XKA-FW22T-L6DTS",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,_,o,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",o=document.getElementsByTagName("script")[0],o.parentNode.insertBefore(r,o);try{_=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",_=r.contentWindow.document}_.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"8PCB5-AKPXS-U2XKA-FW22T-L6DTS",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},_.write("<bo"+'dy onload="document._l();">'),_.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="eqeubyqafyus4jafaiabmmakbnu2i3qe-f-965b87d5a-clienttons-s.akamaihd.net",i="false"=="true"?2:1,_={"ak.v":"39","ak.cp":"1073110","ak.ai":parseInt("638472",10),"ak.ol":"0","ak.cr":37,"ak.ipv":6,"ak.proto":"http/1.1","ak.rid":"1195ee80","ak.r":45127,"ak.a2":e,"ak.m":"dscb","ak.n":"ff","ak.bpcip":"2409:40e2:2e:292e::","ak.cport":39937,"ak.gh":"49.44.196.220","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1772383748","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==R3coFf+HRRgPCK3c9blG1lXC+kVB8LTKZKDIblmxv96RWVqp2vQjJMzInMMjCwYKaqbUBnTk1wKXNm+4kV/udEMOcWh/RkEeYle6nnEoZzNmmJaW0GEL29t6p0C94xxNT/5fmaAt+kfH+L+dey72onsWvuRelNqENsxInO9neQLQwO97/GKPQlqwhygTvwXCzxdNVozBUw7twwWXkUU16yHJMK+iRGFDZTSLN98efa1wQDHax1FJkRkDt2l9ZiSBsnbkxqAll1ssUCILBhpWYUqbcNATUZbaGE+1uZdK39rQIZZ8LNFGAUjDdVCbi0v5BBJcDqvWkIQcjJsnjVJQpvIK0mKtbal/tCEAEI6itKxgVlNbS9PhAabbHvHdRO3ip+wAxrG3HX8FeNnZ+gA7W/fq8kqZ22ZzEWfJ8jF16RI=","ak.pv":"5","ak.dpoabenc":"","ak.tf":i};if(""!==t)_["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))_["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(_)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:_,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+<body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- page-node-179 node-type-higher-education i18n-en">
+    <!-- Accebility Pan -->
+  	<div class="container-fluid topPan">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-md-3">
+                	<p class="time">01 Mar, 2026 | 10:19 PM IST</p>
+                </div>
+                <div class="col-md-9 top_menu">
+				   <div class="region region-top-menu">
+  <div id="block-block-23" class="block block-block" role="navigation">
+
+      
+  <div class="content">
+    <ul class="accblty"><li><span class="glyphicon glyphicon-home marRight"></span><a href="/en" title="Home" target="_self">Home</a></li>
+<li><span class="glyphicon glyphicon-arrow-down marRight"></span><a href="#main-content" title="Skip to main content" target="_self">Skip to main content</a></li>
+<li><span class="glyphicon glyphicon-arrow-down marRight"></span><a href="#header" title="Skip to navigation" target="_self">Skip to navigation</a></li>
+<li><span class="glyphicon glyphicon-volume-up marRight"></span><a href="screen-reader-access" title="Screen Reader Access" target="_self">Screen Reader Access</a></li>
+</ul>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+				   <div class="region region-style-switcher">
+  <div id="block-styleswitcher-styleswitcher" class="block block-styleswitcher abs" role="complementary">
+
+      
+  <div class="content">
+    <div class="item-list"><ul><li class="first"><a href="#" class="accbl style-switcher style-" data-rel="." title=".">A</a></li>
+<li class="last"><a href="#" class="accbl style-switcher style-" data-rel="," title=",">A</a></li>
+</ul></div>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+				   <div class="region region-text-size">
+  <div id="block-textsize-form" class="block block-textsize" role="contentinfo">
+
+      
+  <div class="content">
+    <ul class="accblty textsize_current_list">
+<!--<li class="noDiv">Text Size:</li>--> 
+  <li class="ts_decrease_fix noDiv"><a href="/en/textsize/decrease?destination=node/179" title="Text Size: Decrease -25%" class="ts_decrease_fix text_display_hidden ts_rollover"><img src="/sites/education.gov.in/modules/textsize/images/decrease_16.gif" alt="Decrease Text" class="ts_decrease text_display_hidden ts_rollover" /></a></li>
+
+  <li class="ts_normal_fix noDiv"><a href="/en/textsize/normal?destination=node/179" title="Text Size: Normal =100%" class="ts_normal_fix text_display_hidden ts_rollover"><img src="/sites/education.gov.in/modules/textsize/images/normal_16.gif" alt="Normal Text" class="ts_normal text_display_hidden ts_rollover" /></a></li>
+
+  <li class="ts_increase_fix noDiv"><a href="/en/textsize/increase?destination=node/179" title="Text Size: Increase +25%" class="ts_increase_fix text_display_hidden ts_rollover"><img src="/sites/education.gov.in/modules/textsize/images/increase_16.gif" alt="Increase Text" class="ts_increase text_display_hidden ts_rollover" /></a></li>
+</ul>
+<p class="textsize_current textsize_current_list display_hidden current_text_display_hidden"><span class="display_hidden">Current Size: </span><span id="textsize_current" title="Current Size: 100%">100%</span></p>
+<div class="ts_clear"></div>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+ 
+				   <div class="region region-language-menu">
+  <div id="block-locale-language" class="block block-locale" role="navigation">
+
+      
+  <div class="content">
+    <ul class="language-switcher-locale-url"><li class="en first active"><a href="/en/schemes-implemented-through-autonomous-organisations" class="language-link active" xml:lang="en">English</a></li>
+<li class="hi last"><a href="/schemes-implemented-through-autonomous-organisations-hi" class="language-link" xml:lang="hi">हिन्दी</a></li>
+</ul>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+	 
+				</div>
+            </div>
+        </div>
+    </div>
+    <!-- /Accebility Pan -->
+ <div id="page">
+  <header id="masthead" class="container padTopBtm10" role="banner">
+    <div class="row">
+      <div id="logo" class="col-md-8 col-sm-8 col-xs-12 animated fadeInDown delay-07s">
+        <h1 class="logo"><a href="higher_education" title="Home">
+          <img src="https://www.education.gov.in/sites/upload_files/mhrd/files/logo_higher_0.png" alt="Home" />
+        </a></h1>      </div>
+	  <div class="col-md-4 col-sm-4 col-xs-12 Search animated fadeInDown delay-07s">
+             <div class="region region-search">
+  <div id="block-custom-search-blocks-1" class="block block-custom-search-blocks form-group has-feedback" role="search">
+
+      
+  <div class="content">
+    <form class="search-form" action="/en/schemes-implemented-through-autonomous-organisations" method="post" id="custom-search-blocks-form-1" accept-charset="UTF-8"><div><div class='glyphicon glyphicon-search form-control-feedback'><div class="form-actions form-wrapper" id="edit-actions"><input style="display:none;" type="submit" id="edit-submit" name="op" value="search" class="form-submit" /></div></div><div class="form-item form-type-textfield form-item-custom-search-blocks-form-1">
+  <input title="Enter the terms you wish to search for." class="custom-search-box form-control form-text" placeholder="What are you looking for ?" type="text" id="edit-custom-search-blocks-form-1--2" name="custom_search_blocks_form_1" value="" size="18" maxlength="174" />
+</div>
+<input type="hidden" name="delta" value="1" />
+<input type="hidden" name="form_build_id" value="form-RdTwuWDmLndZRYWyNNhJnr2Pzkh5O4RsRXCcu7KUEuU" />
+<input type="hidden" name="form_id" value="custom_search_blocks_form_1" />
+</div></form>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+	  </div>
+	  </div>
+	</header>
+	<div id="header">
+	<div class="container-fluid navWrap">
+      <div class="container">
+        	<div id='cssmenu'>
+			<div id="topNav">
+	          <div class="region region-primary-menu">
+  <div id="block-nice-menus-1" class="block block-nice-menus" role="navigation">
+
+      
+  <div class="content">
+    <ul class="nice-menu nice-menu-down nice-menu-main-menu" id="nice-menu-1"><li class="menu-3471 menuparent  menu-path-node-16 first odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-3471"><a href="/en/about-moe" title="About Ministry of education">About Us</a><ul><li class="menu-734 menuparent  menu-path-node-23 first odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-734"><a href="/en/constitutional-provision" title="Constitutional Provision" accesskey="t">Constitutional Provision</a><ul><li class="menu-4041 menu-path-node-23 first odd  dhtml-menu" id="dhtml_menu-4041"><a href="/en/constitutional-provision" title="Fundamental Rights">Fundamental Rights</a></li>
+<li class="menu-4042 menu-path-node-156  even  dhtml-menu" id="dhtml_menu-4042"><a href="/en/directive-principles-of-state-policy" title="Directive Principles of State Policy">Directive Principles of State Policy</a></li>
+<li class="menu-4043 menu-path-node-157  odd  dhtml-menu" id="dhtml_menu-4043"><a href="/en/fundamental-duties">Fundamental Duties</a></li>
+<li class="menu-4253 menu-path-node-158  even  dhtml-menu" id="dhtml_menu-4253"><a href="/en/rural_panchayati_raj_urban_municipal_local_bodies" title="Rural &amp; Urban Local Bodies">Rural &amp; Urban Local Bodies</a></li>
+<li class="menu-4045 menu-path-node-159  odd  dhtml-menu" id="dhtml_menu-4045"><a href="/en/scheduled_tribal_areas" title="Scheduled &amp; Tribal Areas">Scheduled &amp; Tribal Areas</a></li>
+<li class="menu-4251 menu-path-node-160  even  dhtml-menu" id="dhtml_menu-4251"><a href="/en/centre-state-relations" title="Centre-State Relations">Centre-State Relations</a></li>
+<li class="menu-4254 menu-path-node-161  odd last dhtml-menu" id="dhtml_menu-4254"><a href="/en/cp-language" title="Language">Language</a></li>
+</ul></li>
+<li class="menu-5238 menu-path-node-15002  even  dhtml-menu" id="dhtml_menu-5238"><a href="/en/organisation_chart_mhrd" title="Organisation Chart">Organisation Chart</a></li>
+<li class="menu-4524 menu-path-node-162  odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-4524"><a href="/en/allocation-business" title="Allocation of Business Rules">Allocation of Business Rules</a><ul class="menu"><li class="first last leaf dhtml-menu" id="dhtml_menu-4049"><a href="/en/allocation_business_rules_se" title="School Education and Literacy">School Education and Literacy</a></li>
+</ul></li>
+<li class="menu-4970 menu-path-node-166  even  dhtml-menu" id="dhtml_menu-4970"><a href="/en/citizens-charters" title="Citizen&#039;s Charter">Citizen&#039;s Charter</a></li>
+<li class="menu-973 menu-path-node-49  odd  dhtml-menu" id="dhtml_menu-973"><a href="/en/policy_initiatives" title="Policy Initiatives">Policy Initiatives</a></li>
+<li class="menu-3473 menu-path-node-42  even  dhtml-menu" id="dhtml_menu-3473"><a href="/en/acts-higher" title="Acts And Rules">Acts And Rules</a></li>
+<li class="menu-3858 menuparent  menu-path-cabe  odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-3858"><a href="/en/cabe" title="Advisory Bodies ">Advisory Bodies </a><ul><li class="menu-3859 menu-path-cabe first odd last dhtml-menu" id="dhtml_menu-3859"><a href="/en/cabe" title="Central Advisory Board of Education">CABE</a></li>
+</ul></li>
+<li class="menu-4069 menu-path-seducationgovin-sites-upload-files-mhrd-files-upload-document-telephone-directory-moepdf  even  dhtml-menu" id="dhtml_menu-4069"><a href="https://www.education.gov.in/sites/upload_files/mhrd/files/upload_document/telephone_directory_moe.pdf" title="Telephone Directory" target="_blank">Telephone Directory</a></li>
+<li class="menu-5049 menuparent  menu-path-svstickereducationgovin  odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-5049"><a href="https://vsticker.education.gov.in" title="Services for MoE Officials">Services for MoE Officials</a><ul><li class="menu-5447 menu-path-sepurtieducationgovin first odd  dhtml-menu" id="dhtml_menu-5447"><a href="https://epurti.education.gov.in" title="Epurti" target="_blank">Epurti</a></li>
+<li class="menu-5050 menu-path-vstickereducationgovin  even last dhtml-menu" id="dhtml_menu-5050"><a href="http://vsticker.education.gov.in" title="Parking Label Application" target="_blank">Parking Label Application</a></li>
+</ul></li>
+<li class="menu-1381 menu-path-node-56  even last dhtml-menu" id="dhtml_menu-1381"><a href="/en/minister-page" title="Who&#039;s Who">Who&#039;s Who</a></li>
+</ul></li>
+<li class="menu-1104 menu-path-node-71  even  dhtml-menu" id="dhtml_menu-1104"><a href="/en/whos-who" title="Ministers">Ministers</a></li>
+<li class="menu-3475 menuparent  menu-path-sdseleducationgovin  odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-3475"><a href="https://dsel.education.gov.in" title="Departments">Departments</a><ul><li class="menu-3477 menu-path-sdseleducationgovin- first odd  dhtml-menu" id="dhtml_menu-3477"><a href="https://dsel.education.gov.in/" title="School Education &amp; Literacy">School Education &amp; Literacy</a></li>
+<li class="menu-3476 menu-path-node-55  even last dhtml-menu" id="dhtml_menu-3476"><a href="/en/higher_education" title="Higher Education">Higher Education</a></li>
+</ul></li>
+<li class="menu-503 menu-path-documents-reports  even  dhtml-menu" id="dhtml_menu-503"><a href="/en/documents_reports" title="Documents &amp; Reports">Documents &amp; Reports</a></li>
+<li class="menu-974 menuparent  menu-path-statistics-new  odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-974"><a href="/en/statistics-new" title="Statistics">Statistics</a><ul><li class="menu-5272 menu-path-statistics-new first odd  dhtml-menu" id="dhtml_menu-5272"><a href="/en/statistics-new?shs_term_node_tid_depth=394" title="School Education">School Education</a></li>
+<li class="menu-4965 menu-path-statistics-new  even  dhtml-menu" id="dhtml_menu-4965"><a href="/en/statistics-new?shs_term_node_tid_depth=384" title="Higher Education">Higher Education</a></li>
+<li class="menu-4966 menu-path-statistics-new  odd  dhtml-menu" id="dhtml_menu-4966"><a href="/en/statistics-new?shs_term_node_tid_depth=387" title="Expenditure on Education">Expenditure on Education</a></li>
+<li class="menu-4967 menu-path-statistics-new  even last dhtml-menu" id="dhtml_menu-4967"><a href="/en/statistics-new?shs_term_node_tid_depth=389" title="Miscellaneous">Miscellaneous</a></li>
+</ul></li>
+<li class="menu-3488 menuparent  menu-path-node-91  even  dhtml-menu collapsed start-collapsed" id="dhtml_menu-3488"><a href="/en/institutions" title="Institutions">Institutions</a><ul><li class="menu-3489 menu-path-node-91 first odd  dhtml-menu" id="dhtml_menu-3489"><a href="/en/institutions" title="School Education And Literacy">School Education And Literacy</a></li>
+<li class="menu-3490 menu-path-node-92  even last dhtml-menu" id="dhtml_menu-3490"><a href="/en/apex-level-bodies" title="Higher Education">Higher Education</a></li>
+</ul></li>
+<li class="menu-5463 menuparent  menu-path-node-21541  odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-5463"><a href="/en/national-boards" title="Boards">Boards</a><ul><li class="menu-5464 menu-path-node-21541 first odd  dhtml-menu" id="dhtml_menu-5464"><a href="/en/national-boards" title="National Boards">National Boards</a></li>
+<li class="menu-5465 menu-path-node-21542  even  dhtml-menu" id="dhtml_menu-5465"><a href="/en/pvt-national-boards" title="Private National Boards">Private National Boards</a></li>
+<li class="menu-5466 menu-path-node-21543  odd last dhtml-menu" id="dhtml_menu-5466"><a href="/en/intl-boards" title="International Boards">International Boards</a></li>
+</ul></li>
+<li class="menu-3914 menuparent  menu-path-syoutubecom-user-hrdministry-videos  even  dhtml-menu collapsed start-collapsed" id="dhtml_menu-3914"><a href="https://www.youtube.com/user/HRDMinistry/videos" title="Multimedia" target="_blank">Multimedia</a><ul><li class="menu-3911 menu-path-syoutubecom-user-hrdministry-videos first odd  dhtml-menu" id="dhtml_menu-3911"><a href="https://www.youtube.com/user/HRDMinistry/videos" title="YouTube Channel" id="ext" target="_blank">YouTube Channel</a></li>
+<li class="menu-3500 menu-path-audios  even  dhtml-menu" id="dhtml_menu-3500"><a href="/en/audios" title="Audio">Audio</a></li>
+<li class="menu-1737 menu-path-gallery  odd last dhtml-menu" id="dhtml_menu-1737"><a href="/en/gallery" title="Photo Gallery">Photo Gallery</a></li>
+</ul></li>
+<li class="menu-5034 menuparent  menu-path-sdashboardudiseplusgovin-  odd  dhtml-menu collapsed start-collapsed" id="dhtml_menu-5034"><a href="https://dashboard.udiseplus.gov.in/" title="School education Dashboard" target="_blank">Dashboard</a><ul><li class="menu-5035 menu-path-sdashboardudiseplusgovin- first odd  dhtml-menu" id="dhtml_menu-5035"><a href="https://dashboard.udiseplus.gov.in/" title="School Education Dashboard" target="_blank">School Education Dashboard</a></li>
+<li class="menu-5032 menu-path-sdashboardaishegovin  even last dhtml-menu" id="dhtml_menu-5032"><a href="https://dashboard.aishe.gov.in" title="Higher Education Dashboard" target="_blank">Higher Education Dashboard</a></li>
+</ul></li>
+<li class="menu-5444 menu-path-node-15019  even last dhtml-menu collapsed start-collapsed" id="dhtml_menu-5444"><a href="/en/rti_he">RTI</a><ul class="menu"><li class="first last leaf dhtml-menu" id="dhtml_menu-5683"><a href="/en/rti_he" title="Higher Education">Higher Education</a></li>
+</ul></li>
+</ul>
+  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+			  </div>
+            </div>
+        </div>
+    </div>
+</div> 
+  <!-- Slider Start-->
+    <!-- Slider end -->
+<!-- Inner Page Start-->  
+      <div class="container-fluid innerHead">
+        <div class="container">
+          <div class="row">
+          <div class="col-md-7"> 
+		   <h2>University And Higher Education</h2>
+		   </div>
+		   <div class="col-md-5 imgHide"> 
+		    <div id="node-179" class="abtMhrd 
+ "> 
+            </div>
+		   </div>
+          </div>
+        </div>
+      </div>
+      	  <!-- Inner Page End--> 
+  <!-- preface first Start -->
+  <!-- preface first End -->
+    
+     <div id="main-content">
+    <div class="container"> 
+      <div class="row row-eq-height">
+                <div id="primary" class="content-area col-sm-9">
+          <section id="content" role="main" class="clearfix">
+            <div class="bradcumPan"><h2 class="element-invisible">You are here</h2><nav class="breadcrumb"><a href="/en">Home</a> >> <a href="/en/higher_education">Higher Education</a> >> <a href="/en/schemes-1" title="Schemes">Schemes</a> >> Schemes Implemented Through Autonomous Organisations</nav></div>
+                        			
+            <div id="content-wrap">
+			<div class="region region-content">
+  <div id="block-system-main" class="block block-system">
+
+      
+  <div class="content">
+                              
+    
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even"><h2 class="page-title">
+	Schemes Implemented Through Statutory and Autonomous Organisations</h2>
+<h2 class="sub-head">
+	1. University Grants Commission</h2>
+<p>
+	The University Grants Commission is a statutory organization established under the University Grants Commission Act, 1956, for the coordination, determination and maintenance of standards of higher education. Apart from providing grants to Universities and Colleges, the Commission also advises the Central Government on the measures which are necessary for the development of higher education.</p>
+<p>
+	For Schemes of UGC, click here: <a href="http://www.ugc.ac.in/page/xii-plan-guidelines.aspx" target="_blank" title="Schemes">Schemes</a></p>
+<h2 class="sub-head">
+	2. <a href="councils">Indian Council of Historical Research</a></h2>
+<h2 class="sub-head">
+	3. <a href="university-and-higher-education-3">Indian Institute of Advanced Study (IIAS)</a></h2>
+<h2 class="sub-head">
+	4. <a href="councils">Indian Council of Philosophical Research (ICPR)</a></h2>
+<h2 class="sub-head">
+	5. <a href="councils">Project of History of Indian Science, Philosophy &amp; Culture</a></h2>
+<h2 class="sub-head">
+	6. <a href="councils">National Council of Rural Institutes (NCRI)</a></h2>
+<h2 class="sub-head">
+	7. <a href="international-cooperation-cell-0">Shastri Indo Canadian Institute (SICI)</a></h2>
+<h2 class="sub-head">
+	8. <a href="university-and-higher-education-3">Dr. Zakir hussain Memorial College Trust</a></h2>
+<h2 class="sub-head">
+	9. <a href="university-and-higher-education-0">Association of Indian Universitie</a>s</h2>
+</div></div></div>	        <span class="submitted page-submited">Last Updated by admin on  Tuesday, 19 April 2016 - 12:12pm</span>
+    	
+    
+  </div>
+
+      <footer>
+          </footer>
+  
+    </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+            
+            </div>
+          </section>
+        </div>
+		  
+                  <div id="rightColm" class="col-md-3 col-xs-5" role="complementary">
+           <div class="region region-sidebar-first">
+  <div id="block-menu-menu-university-and-higher-educa" class="block block-menu" role="contentinfo">
+
+        <h2 >University and Higher Education</h2>
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf dhtml-menu" id="dhtml_menu-1143"><a href="/en/university-and-higher-education" title="Overview">Overview</a></li>
+<li class="expanded dhtml-menu collapsed start-collapsed" id="dhtml_menu-1144"><a href="/en/university-grants-commission" title="University Grants Commission (UGC)">University Grants Commission (UGC)</a><ul class="menu"><li class="first leaf dhtml-menu" id="dhtml_menu-1145"><a href="/en/university-grants-commission" title="University Grants Commission (UGC)">University Grants Commission (UGC)</a></li>
+<li class="last leaf dhtml-menu" id="dhtml_menu-1146"><a href="/en/inter-university-centres-iucs" title="Inter-University Centres (IUCs)">Inter-University Centres (IUCs)</a></li>
+</ul></li>
+<li class="expanded dhtml-menu collapsed start-collapsed" id="dhtml_menu-3499"><a href="/en/central-universities-0" title="Universities/University Level Institution">Universities/University Level Institution</a><ul class="menu"><li class="first leaf dhtml-menu" id="dhtml_menu-1149"><a href="/en/central-universities-0" title="Central Universities">Central Universities</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1150"><a href="/en/state-universities" title="State Universities">State Universities</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1152"><a href="/en/deemed-university" title="Deemed University">Deemed University</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1153"><a href="/en/institutions-national-importance" title="Institution of National Importance">Institution of National Importance</a></li>
+<li class="last leaf dhtml-menu" id="dhtml_menu-1151"><a href="/en/state-private-universities" title="State Private Universities">State Private Universities</a></li>
+</ul></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1154"><a href="/en/university-and-higher-education-0" title="Association of Indian Universities">Association of Indian Universities</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1155"><a href="/en/councils" title="Councils">Councils</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1157"><a href="/en/university-and-higher-education-1" title="National Assessment &amp; Accreditation Council (NAAC)">National Assessment &amp; Accreditation Council (NAAC)</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1156"><a href="/en/university-and-higher-education-3" title="Other Institutions of Higher Learning">Other Institutions of Higher Learning</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-2290"><a href="/en/rusa" title="Rashtriya Uchchatar Shiksha Abhiyan">Rashtriya Uchchatar Shiksha Abhiyan (RUSA)</a></li>
+<li class="expanded active-trail dhtml-menu" id="dhtml_menu-1158"><a href="/en/schemes-1" title="Schemes" class="active-trail">Schemes</a><ul class="menu"><li class="first leaf dhtml-menu" id="dhtml_menu-1159"><a href="/en/schemes-1" title="Schemes">Schemes</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1160"><a href="/en/national-research-professorship-nrp" title="National Research Professorship (NRP)">National Research Professorship (NRP)</a></li>
+<li class="leaf dhtml-menu" id="dhtml_menu-1561"><a href="/en/new-initiatives-xi-plan" title="Initiatives of XI Plan">Initiatives of XI Plan</a></li>
+<li class="leaf active-trail dhtml-menu" id="dhtml_menu-1162"><a href="/en/schemes-implemented-through-autonomous-organisations" title="Schemes Implemented Through Autonomous Organisations" class="active-trail active">Schemes Implemented Through Autonomous Organisations</a></li>
+<li class="last leaf dhtml-menu" id="dhtml_menu-1163"><a href="/en/community-colleges" title="Community Colleges">Community Colleges</a></li>
+</ul></li>
+<li class="last leaf dhtml-menu" id="dhtml_menu-5968"><a href="/en/national-education-policy" title="National Education Policy 2020" target="_blank">National Education Policy 2020</a></li>
+</ul>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+          </div> 
+              </div>
+    </div>
+  </div>
+    <!-- Update Sec -->
+	    <!-- /Update Sec -->
+	 <!-- Citizen Engagement -->
+	     <!-- /Citizen Engagement -->
+	 <!-- Institution Search -->
+	      <!-- /Institution Search -->
+	<!-- Scheme -->
+	     <!-- /Scheme -->
+	 <!-- Footer Logo -->
+	       <!-- /Footer Logo -->
+            <div id="footerWrap" class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-sm-2 col-xs-3 footer-block col-sm-3">
+            <div class="region region-footer-first">
+  <div id="block-menu-menu-about-ministry-of-hrd" class="block block-menu" role="contentinfo">
+
+        <h2 >About MoE</h2>
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/en/about-moe" title="About MHRD">Overview</a></li>
+<li class="leaf"><a href="/en/constitutional-provision" title="Constitutional Provision">Constitutional Provision</a></li>
+<li class="leaf"><a href="/en/allocation-business" title="Allocation of Business Rules">Allocation of Business Rules</a></li>
+<li class="leaf"><a href="/en/citizens-charters" title="Citizen&#039;s Charter">Citizen&#039;s Charter</a></li>
+<li class="leaf"><a href="/en/policy_initiatives" title="Policy Initiatives">Policy Initiatives</a></li>
+<li class="leaf"><a href="/en/cabe" title="Advisory Bodies">Advisory Bodies</a></li>
+<li class="leaf"><a href="/en/organisation_chart_mhrd" title="Organogram">Organogram</a></li>
+<li class="leaf"><a href="/en/schemes" title="Schemes">Schemes</a></li>
+<li class="leaf"><a href="/en/minister-page" title="Who&#039;s Who">Who&#039;s Who</a></li>
+<li class="leaf"><a href="https://www.education.gov.in//sites/upload_files/mhrd/files/upload_document/telephone_directory_moe.pdf" title="Telephone Directory" target="_blank">Telephone Directory</a></li>
+<li class="last leaf"><a href="https://services.india.gov.in" title="Government Services" target="_blank">Government Services</a></li>
+</ul>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+          </div>          <div class="col-md-2 col-sm-2 col-xs-3 footer-block col-sm-3">
+            <div class="region region-footer-second">
+  <div id="block-menu-block-7" class="block block-menu-block">
+
+        <h2 >Multimedia</h2>
+    
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-7 menu-name-menu-audio-video parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-5217"><a href="/en/covid-campaign-gallery" title="Covid-19 Campaign">Covid-19 Campaign</a></li>
+<li class="leaf menu-mlid-3902"><a href="https://www.youtube.com/user/HRDMinistry/videos" title="YouTube Channel" target="_blank">YouTube Channel</a></li>
+<li class="leaf menu-mlid-2627"><a href="/en/audios" title="Audio">Audio</a></li>
+<li class="leaf menu-mlid-3913"><a href="/en/gallery" title="Photo Gallery">Photo Gallery</a></li>
+<li class="last leaf menu-mlid-5038"><a href="/en/photogallery-archived" title="Archived Photo Gallery">Archived Photo Gallery</a></li>
+</ul></div>
+  </div>
+  
+</div> <!-- /.block -->
+<div id="block-menu-block-8" class="block block-menu-block" role="contentinfo">
+
+        <h2 >Institutions</h2>
+    
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-8 menu-name-menu-institutions parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-1295 dhtml-menu" id="dhtml_menu-1295"><a href="/en/institutions" title="School Education and Literacy">School Education &amp; Literacy</a></li>
+<li class="last leaf has-children menu-mlid-1294 dhtml-menu" id="dhtml_menu-1294"><a href="/en/apex-level-bodies" title="Higher Education">Higher Education</a></li>
+</ul></div>
+  </div>
+  
+</div> <!-- /.block -->
+<div id="block-menu-block-13" class="block block-menu-block">
+
+        <h2 >Departments</h2>
+    
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-13 menu-name-menu-departments parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-4409"><a href="/en/higher_education" title="Higher Education">Higher Education</a></li>
+<li class="last leaf menu-mlid-4410"><a href="/en/school-education" title="School Education &amp; Literacy">School Education &amp; Literacy</a></li>
+</ul></div>
+  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+          </div>          <div class="col-md-2 col-sm-2 col-xs-3 footer-block col-sm-3">
+            <div class="region region-footer-third">
+  <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+      
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/en/terms-condition" title="Terms &amp; Condition">Terms &amp; Conditions</a></li>
+<li class="leaf"><a href="/en/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+<li class="leaf"><a href="/en/copyright_policy" title="Copyright Policy">Copyright Policy</a></li>
+<li class="leaf"><a href="/en/hyperlink-policy" title="Hyperlink Policy">Hyperlink Policy</a></li>
+<li class="leaf"><a href="/en/disclaimer" title="Disclaimer">Disclaimer</a></li>
+<li class="leaf"><a href="/en/related-links" title="Related Link">Related Link</a></li>
+<li class="leaf"><a href="/en/accessibility-statement" title="Accessibility Statement">Accessibility Statement</a></li>
+<li class="leaf"><a href="/en/sitemap" title="Sitemap">Sitemap</a></li>
+<li class="leaf"><a href="https://datastudio.google.com/reporting/9b2c28b1-746b-4ed8-9453-2871419f2b88" title="Web Analytics" target="_blank">Web Analytics</a></li>
+<li class="leaf"><a href="https://www.education.gov.in/sites/upload_files/mhrd/files/upload_document/TELEPHONE_DIRECTORY_01072025.pdf" title="Contact Us" target="_blank">Contact Us</a></li>
+<li class="leaf"><a href="/en/help" title="Help">Help</a></li>
+<li class="leaf"><a href="/en/web_information_manager" title="Web Information Manager">Web Information Manager</a></li>
+<li class="leaf"><a href="https://www.india.gov.in" title="National Portal" target="_blank">National Portal</a></li>
+<li class="leaf"><a href="https://pgportal.gov.in/Registration" target="_blank">Public Grievances</a></li>
+<li class="last leaf"><a href="https://pgportal.gov.in/Registration" title="Feedback" target="_blank">Feedback</a></li>
+</ul>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+          </div>          <div class="col-md-6 col-sm-6 col-xs-12 bdrRtFoot footer-block col-sm-3">
+            <div class="region region-footer-fourth">
+  <div id="block-block-138" class="block block-block">
+
+      
+  <div class="content">
+    <div>
+	<span class="footer-qr"><img alt="Open Government Data Platform India" height="100" src="/sites/upload_files/mhrd/files/nep/images/ogd-qr2.png" width="100" /></span></div>
+<div>
+	<span class="niclogo"></span></div>
+<div class="cpyTxt">
+<p>
+		Content of this website is owned and managed by D/o Higher Education, Ministry of Education. This site is designed, developed, hosted and maintained by National Informatics Centre (NIC), Ministry of Electronics &amp; Information Technology, Government of India. Copyright 2021. All Rights Reserved.</p>
+</div>
+<div class="socialMed">
+<h2 class="mediaHead">
+		Follow us on:</h2>
+<p>	<a class="fb ext" href="https://www.facebook.com/EduMinOfIndia" target="_blank" title="Facebook"><i class="fa fa-facebook-square"></i></a> <a class="twitter ext" href="https://twitter.com/EduMinOfIndia" target="_blank" title="Twitter"><i class="fa fa-twitter-square"></i></a> <a class="youtube ext" href="https://www.youtube.com/user/HRDMinistry" target="_blank" title="Youtube"><i class="fa fa-youtube-square"></i></a></p></div>
+<div class="valid-icon">
+<ul><li class="cqw">
+			<a href="https://digitalindiaawards.gov.in/" target="_blank" title="Digital India Awards 2016 - Platinum Icon"><img alt="Digital India Awards 2016 - Platinum Icon" height="43" src="/sites/upload_files/mhrd/files/nep/images/award_dia.png" width="114" /></a></li>
+<li class="cqw">
+			<a href="/sites/upload_files/mhrd/files/upload_document/MoE_STQC.pdf" target="_blank" title="MHRD STQC Website Quality Certification"><img alt="STQC Certificate" height="45" src="/sites/upload_files/mhrd/files/nep/images/stqc.png" width="45" /></a></li>
+<li>
+			<a href="https://validator.w3.org/check?uri=referer" target="_blank" title="Valid CSS! External website that opens in a new window"><img alt="Valid XHTML 1.0 Transitional" height="22" src="https://www.w3.org/Icons/valid-xhtml10" width="80" /></a></li>
+<li class="last">
+			<a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank" title="Valid CSS! External website that opens in a new window"><img alt="Valid CSS!" src="https://jigsaw.w3.org/css-validator/images/vcss" style="border:0;width:80px;height:22px" /></a></li>
+</ul></div>
+<div class="support">
+<p>
+		<strong>Supports:</strong>   <i class="fa fa-firefox"></i> Firefox 2.0+   <i class="fa fa-chrome"></i> Google Chrome 6.0+   <i class="fa fa-internet-explorer"></i> Internet Explorer 8.0+   <i class="fa fa-safari"></i> Safari 4.0+</p>
+</div>
+  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+          </div>        </div>
+      </div>
+    </div>
+    </div>  
+<script>
+    wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       100
+      }
+    );
+    wow.init();
+    document.getElementById('').onclick = function() {
+      var section = document.createElement('section');
+      section.className = 'wow fadeInDown';
+      this.parentNode.insertBefore(section, this);
+    };
+  </script>
+<script type="text/javascript">
+jQuery(document).ready(function($)
+{
+    var headerwrap = $('#header');
+    $(window).scroll(function()
+		{
+        var scroll = $(this).scrollTop();
+        var topDist = 100;
+        if( scroll > topDist ) 
+		{
+            headerwrap.addClass('sticky');
+        }
+        else 
+		{
+            headerwrap.removeClass('sticky');
+        }
+		}
+		)});
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function($)
+{
+    var headerwrap = $('#header');
+    $(window).scroll(function()
+		{
+        var scroll = $(this).scrollTop();
+        var topDist = 100;
+        if( scroll > topDist ) 
+		{
+            headerwrap.addClass('sticky');
+        }
+        else 
+		{
+            headerwrap.removeClass('sticky');
+        }
+		}
+		)});
+</script>
+  </body>
+</html>
