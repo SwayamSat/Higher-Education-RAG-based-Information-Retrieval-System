@@ -1,19 +1,41 @@
-import colorama
-from colorama import Fore, Style
+import logging
 from agents import RelevanceAgent, GeneratorAgent, FactCheckAgent
+from router import QueryRouter
 
-colorama.init(autoreset=True)
+logger = logging.getLogger(__name__)
+
+def sanitize_query(query: str) -> str:
+    query = query.strip()
+    if len(query) > 1000:
+        raise ValueError("Query exceeds maximum length of 1000 characters.")
+    
+    forbidden = ["ignore previous", "system prompt", "forget"]
+    if any(f in query.lower() for f in forbidden):
+        raise ValueError("Invalid query pattern detected. Please rephrase your question.")
+    return query
 
 class RAGPipeline:
     def __init__(self):
+        self.router = QueryRouter()
         self.retriever = RelevanceAgent()
         self.generator = GeneratorAgent()
         self.verifier = FactCheckAgent()
 
     def process_query(self, query):
-        print(f"\n{Fore.MAGENTA}{'='*50}")
-        print(f"{Fore.MAGENTA}Processing Query: {query}")
-        print(f"{Fore.MAGENTA}{'='*50}\n")
+        try:
+            query = sanitize_query(query)
+        except ValueError as e:
+            return self.format_output(str(e), "N/A", "Low", {"status": "Blocked", "reason": "Sanitization failed"})
+
+        logger.info(f"Processing Query: {query}")
+
+        route = self.router.route(query)
+        logger.info(f"Query routed as: {route}")
+
+        if route == "direct":
+            return self.format_output("I am the Government Scheme Assistant. I can help you find information on scholarships, AICTE norms, and various government policies via official documents. How can I help you today?", "N/A", "High", {"status": "Verified", "reason": "Direct Answer"})
+        elif route == "clarify":
+            return self.format_output("Could you provide more details? (e.g., 'What is the PM POSHAN scheme?' or 'AICTE scholarships list')", "N/A", "High", {"status": "Verified", "reason": "Clarification Request"})
 
         # Step 1: Retrieval
         relevant_docs = self.retriever.retrieve(query)
@@ -29,9 +51,9 @@ class RAGPipeline:
         verification_result = self.verifier.verify(query, answer, relevant_docs)
         
         # Step 4: Self-Correction Loop (Simple Implementation)
-        if verification_result["status"] != "Verified":
-            print(f"{Fore.RED}Verification Failed: {verification_result['reason']}")
-            print(f"{Fore.YELLOW}Attempting Self-Correction...")
+        if verification_result.status != "Verified":
+            logger.warning(f"Verification Failed: {verification_result.reason}")
+            logger.info("Attempting Self-Correction...")
             
             # Simple correction: Try to generate again with stricter instruction
             # In a full system, you might refine the query or fetch more docs
@@ -40,7 +62,7 @@ class RAGPipeline:
             
             # Re-verify
             verification_result = self.verifier.verify(new_query, answer, relevant_docs)
-            if verification_result["status"] != "Verified":
+            if verification_result.status != "Verified":
                 answer = "The requested information could not be verified from official documents."
                 confidence = "Low"
             else:
@@ -57,48 +79,51 @@ class RAGPipeline:
         # Extract Sources
         sources = set()
         for doc in relevant_docs:
-            sources.add(doc['metadata']['source'])
+            sources.add(doc['metadata'].get('source', 'Unknown'))
         source_str = ", ".join(sources) if sources else "N/A"
 
         return self.format_output(answer, source_str, confidence, verification_result, generated_answer=initial_answer)
 
     def format_output(self, answer, source, confidence, verification_result=None, generated_answer=None):
         output = f"""
-{Fore.CYAN}Final Answer:{Style.RESET_ALL}
+Final Answer:
 {answer}
 """
         if generated_answer and generated_answer != answer:
             output += f"""
-{Fore.MAGENTA}Generated Answer (Before Verification):{Style.RESET_ALL}
+Generated Answer (Before Verification):
 {generated_answer}
 """
 
         output += f"""
-{Fore.CYAN}Source:{Style.RESET_ALL}
+Source:
 {source}
 
-{Fore.CYAN}Confidence:{Style.RESET_ALL}
+Confidence:
 {confidence}
 """
-        if verification_result:
+        if getattr(verification_result, 'status', None) or (isinstance(verification_result, dict) and verification_result.get('status')):
+             v_status = verification_result.status if hasattr(verification_result, 'status') else verification_result['status']
+             v_reason = verification_result.reason if hasattr(verification_result, 'reason') else verification_result['reason']
              output += f"""
-{Fore.YELLOW}Verification Status:{Style.RESET_ALL}
-{verification_result['status']}
+Verification Status:
+{v_status}
 
-{Fore.YELLOW}Verification Reason:{Style.RESET_ALL}
-{verification_result['reason']}
+Verification Reason:
+{v_reason}
 """
         return output
 
 def main():
-    print(f"{Fore.GREEN}Smart Retrieval of Education Schemes (RAG System)")
-    print(f"{Fore.GREEN}Type 'exit' to quit.\n")
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    print("Smart Retrieval of Education Schemes (RAG System)")
+    print("Type 'exit' to quit.\n")
     
     pipeline = RAGPipeline()
     
     while True:
         try:
-            query = input(f"{Fore.BLUE}\nEnter your query: {Style.RESET_ALL}")
+            query = input("\nEnter your query: ")
             if query.lower() in ['exit', 'quit']:
                 break
             
@@ -111,7 +136,7 @@ def main():
         except KeyboardInterrupt:
             break
         except Exception as e:
-            print(f"{Fore.RED}An error occurred: {e}")
+            logger.error(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()
