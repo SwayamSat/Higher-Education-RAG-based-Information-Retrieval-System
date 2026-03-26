@@ -4,17 +4,36 @@ from langchain_core.documents import Document
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import PromptTemplate
 from collections import deque
-from config import CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, TOP_K_RETRIEVAL, LLM_MODEL_NAME, LLM_BASE_URL, SCORE_THRESHOLD, BM25_WEIGHT, VECTOR_WEIGHT
+from config import CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, TOP_K_RETRIEVAL, LLM_MODEL_NAME, LLM_BASE_URL, SCORE_THRESHOLD, BM25_WEIGHT, VECTOR_WEIGHT, USE_LANGFUSE, LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, LANGFUSE_HOST
 import logging
 import time
 from langchain_huggingface import HuggingFaceEmbeddings
 
 logger = logging.getLogger(__name__)
 
-def call_llm_with_retry(llm, prompt, max_retries=3):
+def get_langfuse_callback(query_id: str, agent_name: str, iteration: int = 1):
+    if not USE_LANGFUSE:
+        return None
+    try:
+        from langfuse.callback import CallbackHandler
+        return CallbackHandler(
+            public_key=LANGFUSE_PUBLIC_KEY,
+            secret_key=LANGFUSE_SECRET_KEY,
+            host=LANGFUSE_HOST,
+            tags=[agent_name],
+            session_id=query_id,
+            metadata={"iteration": iteration}
+        )
+    except Exception as e:
+        logger.warning(f"Failed to load Langfuse callback: {e}")
+        return None
+
+def call_llm_with_retry(llm, prompt, max_retries=3, config=None):
     retries = 0
     while retries <= max_retries:
         try:
+            if config:
+                return llm.invoke(prompt, config=config)
             return llm.invoke(prompt)
         except Exception as e:
             if retries == max_retries:
@@ -137,7 +156,7 @@ Question: {question}
 Answer:"""
         )
 
-    def generate_answer(self, query, context_docs):
+    def generate_answer(self, query, context_docs, query_id="default", iteration=1):
         if not context_docs:
             return "The requested information is not available in the provided official documents."
         
@@ -156,13 +175,46 @@ Answer:"""
         
         logger.info("Generating answer...")
         try:
-            response = call_llm_with_retry(self.llm, prompt)
+            cb = get_langfuse_callback(query_id, "GeneratorAgent", iteration)
+            config = {"callbacks": [cb]} if cb else None
+            response = call_llm_with_retry(self.llm, prompt, config=config)
             # Save context to memory
             self.memory.append((query, response.content))
             return response.content
         except Exception as e:
             logger.error(f"Error generating answer: {e}")
             return f"Error generating answer: {e}"
+
+    def stream_answer(self, query, context_docs, query_id="default", iteration=1):
+        if not context_docs:
+            for word in "The requested information is not available in the provided official documents.".split():
+                yield word + " "
+            return
+        
+        context_str = ""
+        for i, doc in enumerate(context_docs):
+            context_str += f"[Source: {doc['metadata'].get('source', 'Unknown')}, Page: {doc['metadata'].get('page', 'N/A')}]\n{doc['content']}\n\n"
+        
+        chat_history = ""
+        for human_msg, ai_msg in self.memory:
+            chat_history += f"Human: {human_msg}\nAI: {ai_msg}\n\n"
+        if not chat_history:
+            chat_history = "None"
+        
+        prompt = self.prompt_template.format(chat_history=chat_history, context=context_str, question=query)
+        
+        logger.info("Streaming answer...")
+        try:
+            cb = get_langfuse_callback(query_id, "GeneratorAgent", iteration)
+            config = {"callbacks": [cb]} if cb else None
+            full_response = ""
+            for chunk in self.llm.stream(prompt, config=config):
+                yield chunk.content
+                full_response += chunk.content
+            self.memory.append((query, full_response))
+        except Exception as e:
+            logger.error(f"Error streaming answer: {e}")
+            yield f"\n[Error: {e}]"
 
 from models import VerificationResult
 from langchain_core.output_parsers import PydanticOutputParser
@@ -196,7 +248,7 @@ Task:
 """
         )
 
-    def verify(self, query: str, answer: str, context_docs: list) -> VerificationResult:
+    def verify(self, query: str, answer: str, context_docs: list, query_id="default", iteration=1) -> VerificationResult:
         if "not available in the provided official documents" in answer:
              return VerificationResult(status="Verified", reason="System correctly identified missing info.")
 
@@ -208,7 +260,9 @@ Task:
         
         logger.info("Verifying answer...")
         try:
-            response = call_llm_with_retry(self.llm, prompt)
+            cb = get_langfuse_callback(query_id, "FactCheckAgent", iteration)
+            config = {"callbacks": [cb]} if cb else None
+            response = call_llm_with_retry(self.llm, prompt, config=config)
             result = self.parser.invoke(response)
             return result
         except OutputParserException as e:

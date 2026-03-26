@@ -1,0 +1,27 @@
+[
+    {
+        "question": "What is the PM POSHAN scheme?",
+        "ground_truth": "The PM POSHAN scheme is a government initiative to provide nutritious meals to school children.",
+        "expected_docs": ["pm_poshan_guidelines.pdf"]
+    },
+    {
+        "question": "Tell me about AICTE scholarships.",
+        "ground_truth": "AICTE offers scholarships like Pragati and Saksham for students pursuing technical education.",
+        "expected_docs": ["aicte_scholarships.pdf"]
+    },
+    {
+        "question": "How do I apply for a UGC grant?",
+        "ground_truth": "You can apply for a UGC grant through their official e-portal after fulfilling the eligibility criteria.",
+        "expected_docs": ["ugc_grants.pdf"]
+    },
+    {
+        "question": "What are the eligibility criteria for the Swayam platform?",
+        "ground_truth": "Anyone can enroll in Swayam courses, but taking proctored exams may require a nominal fee.",
+        "expected_docs": ["swayam_info.pdf"]
+    },
+    {
+        "question": "Who won the World Cup in 2022?",
+        "ground_truth": "I don't know based on the provided documents.",
+        "expected_docs": []
+    }
+]

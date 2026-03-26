@@ -16,6 +16,13 @@ class VerificationResult(BaseModel):
     status: Literal["Verified", "Unverified", "Partial", "Blocked"]
     reason: str
 
+class PipelineStep(BaseModel):
+    agent: str
+    duration_ms: float
+    input_summary: str
+    output_summary: str
+    iteration: int
+
 class QueryResponse(BaseModel):
     answer: str
     sources: List[SourceDocument]
@@ -24,3 +31,4 @@ class QueryResponse(BaseModel):
     latency_ms: Dict[str, float]
     query_id: str
     generated_answer: Optional[str] = None # Added for tracing/debugging
+    pipeline_steps: List[PipelineStep] = []

@@ -1,56 +1,42 @@
-# Smart Retrieval of Education System (RAG)
+# Smart RAG-based Information Retrieval System for Higher Education
 
-An intelligent Retrieval-Augmented Generation (RAG) system designed to provide accurate information about government education schemes in India.
+A self-correcting, multi-agent Retrieval-Augmented Generation (RAG) system specialized in Government Schemes, AICTE norms, and educational policies.
 
 ## Features
-- **Multi-Source Scraping**: Automatically downloads official scheme documents (PDFs) from MoE, UGC, AICTE, and MSDE.
-- **Advanced RAG Pipeline**:
-    - **Relevance Agent**: Efficient similarity search using FAISS and HuggingFace embeddings (`all-MiniLM-L6-v2`).
-    - **Generator Agent**: Context-aware answer generation using Ollama (`llama3.2`).
-    - **Fact-Check Agent**: Automated verification to prevent hallucinations by double-checking answers against retrieved context.
-- **Self-Correction**: Simple iterative loop to refine answers if verification fails.
-- **CLI Interface**: Interactive command-line interface for querying the system.
+- **Multi-Agent Pipeline**: Independent Retriever, Generator, and Fact-Checker agents.
+- **RRF Hybrid Scoring**: Combines FAISS vector search and BM25 keyword search.
+- **Self-Correction**: Supervisors detect hallucinations and retry with dynamic strategies.
+- **SSE Streaming API**: Real-time token streaming and verification events.
+- **Document Management**: Fast backend indexing and metadata storage with SQLite.
 
-## Project Structure
-- `agents.py`: Definition of the three AI agents (Relevance, Generator, Fact-Check).
-- `main.py`: The main entry point and pipeline orchestrator.
-- `indexer.py`: Script to process PDF documents and build the vector database.
-- `scrape_documents.py`: Utility to fetch the latest documents from official sources.
-- `config.py`: Centralized configuration for models and paths.
-- `check_setup.py`: Utility to verify environment and dependencies.
-
-## Prerequisites
-- **Python 3.10+**
-- **Ollama**: Must be installed and running locally.
-    - Download from [ollama.ai](https://ollama.ai/)
-    - Pull the required model: `ollama pull llama3.2`
-
-## Installation
-1. Clone the repository.
-2. Install dependencies:
+## Quick Start
+1. **Install Dependencies**
    ```bash
-   pip install -r requirements.txt
+   pip install -e .
    ```
-   *(Note: If `requirements.txt` is missing, manual install includes: `langchain`, `faiss-cpu`, `sentence-transformers`, `requests`, `beautifulsoup4`, `colorama`, `langchain-huggingface`, `langchain-community`, `pypdf`)*
+2. **Start Backend API**
+   ```bash
+   uvicorn api:app --reload
+   ```
+3. **Index Documents**
+   Upload documents via API or use the CLI interface `python indexer.py`
+4. **Run CLI Client** (Optional)
+   ```bash
+   python main.py
+   ```
 
-## Usage
-### 1. Scrape Documents
-```bash
-python scrape_documents.py
-```
-### 2. Build Index
-```bash
-python indexer.py
-```
-### 3. Run the System
-```bash
-python main.py
-```
+## API Reference
+| Endpoint | Method | Description |
+|---|---|---|
+| `/query` | POST | Process a normal RAG query |
+| `/query/stream` | POST | Process query and stream tokens via SSE |
+| `/documents/upload` | POST | Upload and index a new document |
+| `/documents` | GET | List all indexed documents |
+| `/documents/{doc_id}` | DELETE | Delete document by ID |
+| `/documents/reindex` | POST | Trigger global background reindexing |
+| `/feedback` | POST | Submit query feedback |
+| `/feedback/stats` | GET | Fetch feedback distribution statistics |
+| `/analytics` | GET | Get system usage stats and latency metrics |
 
-## Status & Roadmap
-- [x] Core RAG Pipeline implementation.
-- [x] Multi-agent architecture (Retrieval, Generation, Verification).
-- [x] Initial data for AICTE, MoE, and UGC.
-- [/] MSDE data scraping fix.
-- [ ] Streamlit/React Web UI.
-- [ ] Evaluation framework (RAGAS).
+## Architecture
+See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed flowcharts and multi-agent interactions.

@@ -26,4 +26,7 @@ dependencies = [
     "uvicorn>=0.42.0",
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.0",
+    "sqlalchemy>=2.0.0",
+    "ragas>=0.1.5",
+    "datasets>=2.16.1",
 ]
