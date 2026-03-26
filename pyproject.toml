@@ -24,4 +24,6 @@ dependencies = [
     "requests>=2.32.5",
     "unstructured>=0.21.5",
     "uvicorn>=0.42.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
 ]

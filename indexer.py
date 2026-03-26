@@ -5,7 +5,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_experimental.text_splitter import SemanticChunker
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
-from config import DATA_DIR, CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, CHUNK_SIZE, CHUNK_OVERLAP
+from config import DATA_DIR, CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, CHUNK_SIZE, CHUNK_OVERLAP, USE_SEMANTIC_CHUNKER
 import logging
 from pathlib import Path
 import hashlib
@@ -91,12 +91,21 @@ def create_index():
     logger.info(f"Generating embeddings for semantic chunking using {EMBEDDING_MODEL_NAME}...")
     embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_NAME)
     
-    try:
-        raise Exception("Disabled SemanticChunker for speed. Falling back.")
-        text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type="percentile")
-        logger.info("Using Semantic Chunker to preserve paragraph meaning.")
-    except Exception as e:
-        logger.warning(f"Semantic chunking failed/unavailable, falling back to basic splitting: {e}")
+    if USE_SEMANTIC_CHUNKER:
+        try:
+            logger.info("Attempting to use Semantic Chunker...")
+            text_splitter = SemanticChunker(embeddings, breakpoint_threshold_type="percentile")
+            logger.info("Successfully using Semantic Chunker.")
+        except Exception as e:
+            logger.warning(f"Semantic chunking failed/unavailable, falling back to basic splitting: {e}")
+            text_splitter = RecursiveCharacterTextSplitter(
+                chunk_size=CHUNK_SIZE,
+                chunk_overlap=CHUNK_OVERLAP,
+                separators=["\n## ", "\n### ", "\n\n", "\n", ". ", " "]
+            )
+            logger.info("Using RecursiveCharacterTextSplitter fallback.")
+    else:
+        logger.info("Semantic chunker is disabled by config. Using basic splitting.")
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=CHUNK_SIZE,
             chunk_overlap=CHUNK_OVERLAP,

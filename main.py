@@ -1,8 +1,23 @@
 import logging
+import requests
+import sys
 from agents import RelevanceAgent, GeneratorAgent, FactCheckAgent
 from router import QueryRouter
+from config import LLM_BASE_URL
+from correction import CorrectionSupervisor
 
 logger = logging.getLogger(__name__)
+
+def ping_ollama():
+    try:
+        url = LLM_BASE_URL.replace('/api', '')
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+        logger.info("Ollama health check passed.")
+        return True
+    except Exception as e:
+        logger.error(f"Ollama health check failed: {e}. Please ensure Ollama is running.")
+        return False
 
 def sanitize_query(query: str) -> str:
     query = query.strip()
@@ -20,6 +35,7 @@ class RAGPipeline:
         self.retriever = RelevanceAgent()
         self.generator = GeneratorAgent()
         self.verifier = FactCheckAgent()
+        self.correction_supervisor = CorrectionSupervisor(self.generator, self.retriever, self.verifier)
 
     def process_query(self, query):
         try:
@@ -50,23 +66,21 @@ class RAGPipeline:
         # Step 3: Verification
         verification_result = self.verifier.verify(query, answer, relevant_docs)
         
-        # Step 4: Self-Correction Loop (Simple Implementation)
+        # Step 4: Self-Correction Loop
+        metadata = {}
         if verification_result.status != "Verified":
             logger.warning(f"Verification Failed: {verification_result.reason}")
-            logger.info("Attempting Self-Correction...")
             
-            # Simple correction: Try to generate again with stricter instruction
-            # In a full system, you might refine the query or fetch more docs
-            new_query = query + " (Ensure answer is strictly based on context)"
-            answer = self.generator.generate_answer(new_query, relevant_docs)
-            
-            # Re-verify
-            verification_result = self.verifier.verify(new_query, answer, relevant_docs)
-            if verification_result.status != "Verified":
-                answer = "The requested information could not be verified from official documents."
-                confidence = "Low"
-            else:
-                confidence = "Medium" # Corrected answers might be less confident
+            correction_res = self.correction_supervisor.run_correction(query, answer, relevant_docs)
+            answer = correction_res["answer"]
+            relevant_docs = correction_res["docs"]
+            verification_result = correction_res["verification_result"]
+            confidence = correction_res["confidence"]
+            metadata = {
+                "correction_attempts": correction_res["correction_attempts"],
+                "strategies_used": correction_res["strategies_used"],
+                "final_status": correction_res["final_status"]
+            }
         else:
             confidence = "High"
 
@@ -76,9 +90,9 @@ class RAGPipeline:
             sources.add(doc['metadata'].get('source', 'Unknown'))
         source_str = ", ".join(sources) if sources else "N/A"
 
-        return self.format_output(answer, source_str, confidence, verification_result, generated_answer=initial_answer)
+        return self.format_output(answer, source_str, confidence, verification_result, generated_answer=initial_answer, metadata=metadata)
 
-    def format_output(self, answer, source, confidence, verification_result=None, generated_answer=None):
+    def format_output(self, answer, source, confidence, verification_result=None, generated_answer=None, metadata=None):
         output = f"""
 Final Answer:
 {answer}
@@ -106,12 +120,22 @@ Verification Status:
 Verification Reason:
 {v_reason}
 """
+        if metadata and metadata.get('correction_attempts'):
+            output += f"""
+Correction Attempts: {metadata['correction_attempts']}
+Strategies Used: {", ".join(metadata['strategies_used'])}
+Correction Final Status: {metadata['final_status']}
+"""
         return output
 
 def main():
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     print("Smart Retrieval of Education Schemes (RAG System)")
     print("Type 'exit' to quit.\n")
+    
+    if not ping_ollama():
+        print("Warning: Ollama is not responding. Ensure the service is running.")
+        print("Continuing anyway, but generation might fail.")
     
     pipeline = RAGPipeline()
     

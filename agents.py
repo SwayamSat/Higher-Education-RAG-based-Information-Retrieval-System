@@ -6,9 +6,24 @@ from langchain_core.prompts import PromptTemplate
 from collections import deque
 from config import CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, TOP_K_RETRIEVAL, LLM_MODEL_NAME, LLM_BASE_URL, SCORE_THRESHOLD, BM25_WEIGHT, VECTOR_WEIGHT
 import logging
+import time
 from langchain_huggingface import HuggingFaceEmbeddings
 
 logger = logging.getLogger(__name__)
+
+def call_llm_with_retry(llm, prompt, max_retries=3):
+    retries = 0
+    while retries <= max_retries:
+        try:
+            return llm.invoke(prompt)
+        except Exception as e:
+            if retries == max_retries:
+                logger.error(f"Max retries reached. LLM call failed: {e}")
+                raise e
+            backoff_time = 2 ** (retries + 1)
+            logger.warning(f"LLM call failed with error: {e}. Retrying in {backoff_time}s ({retries + 1}/{max_retries})...")
+            time.sleep(backoff_time)
+            retries += 1
 
 class RelevanceAgent:
     def __init__(self):
@@ -41,17 +56,19 @@ class RelevanceAgent:
             logger.error(f"Error loading Chroma/BM25 index: {e}")
             self.vector_store = None
 
-    def retrieve(self, query):
+    def retrieve(self, query, top_k=None):
+        k = top_k or TOP_K_RETRIEVAL
         if not self.vector_store:
             return []
         
         logger.info(f"Retrieving relevant documents for: '{query}'")
         
         try:
+            self.faiss_retriever.search_kwargs["k"] = k
             if not getattr(self, 'index_loaded', False):
                  docs = self.faiss_retriever.invoke(query)
                  results = []
-                 for i, doc in enumerate(docs[:TOP_K_RETRIEVAL]):
+                 for i, doc in enumerate(docs[:k]):
                      results.append({
                          "content": doc.page_content,
                          "metadata": doc.metadata,
@@ -60,6 +77,7 @@ class RelevanceAgent:
                  return results
             else:
                  # Custom Hybrid Retriever logic
+                 self.bm25_retriever.k = k
                  bm25_docs = self.bm25_retriever.invoke(query)
                  vector_docs = self.faiss_retriever.invoke(query)
                  
@@ -82,7 +100,7 @@ class RelevanceAgent:
                  sorted_docs = sorted(doc_scores.items(), key=lambda x: x[1], reverse=True)
                  
                  results = []
-                 for content, score in sorted_docs[:TOP_K_RETRIEVAL]:
+                 for content, score in sorted_docs[:k]:
                      results.append({
                          "content": content,
                          "metadata": doc_map[content].metadata,
@@ -138,7 +156,7 @@ Answer:"""
         
         logger.info("Generating answer...")
         try:
-            response = self.llm.invoke(prompt)
+            response = call_llm_with_retry(self.llm, prompt)
             # Save context to memory
             self.memory.append((query, response.content))
             return response.content
@@ -190,7 +208,7 @@ Task:
         
         logger.info("Verifying answer...")
         try:
-            response = self.llm.invoke(prompt)
+            response = call_llm_with_retry(self.llm, prompt)
             result = self.parser.invoke(response)
             return result
         except OutputParserException as e:

@@ -15,6 +15,7 @@ LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "llama3.2")
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://localhost:11434")
 
 # Retrieval Configuration
+USE_SEMANTIC_CHUNKER = os.getenv("USE_SEMANTIC_CHUNKER", "True").lower() in ("true", "1", "t")
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
 TOP_K_RETRIEVAL = int(os.getenv("TOP_K_RETRIEVAL", "5"))
