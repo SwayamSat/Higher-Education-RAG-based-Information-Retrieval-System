@@ -1,12 +1,12 @@
 from langchain_community.retrievers import BM25Retriever
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
-from langchain_community.chat_models import ChatOllama
+from langchain_ollama import ChatOllama
 from langchain_core.prompts import PromptTemplate
 from collections import deque
 from config import CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, TOP_K_RETRIEVAL, LLM_MODEL_NAME, LLM_BASE_URL, SCORE_THRESHOLD, BM25_WEIGHT, VECTOR_WEIGHT
 import logging
-from langchain_community.embeddings import HuggingFaceEmbeddings # Added this import as it was missing but used
+from langchain_huggingface import HuggingFaceEmbeddings
 
 logger = logging.getLogger(__name__)
 
@@ -50,38 +50,46 @@ class RelevanceAgent:
         try:
             if not getattr(self, 'index_loaded', False):
                  docs = self.faiss_retriever.invoke(query)
+                 results = []
+                 for i, doc in enumerate(docs[:TOP_K_RETRIEVAL]):
+                     results.append({
+                         "content": doc.page_content,
+                         "metadata": doc.metadata,
+                         "score": 0.0
+                     })
+                 return results
             else:
                  # Custom Hybrid Retriever logic
                  bm25_docs = self.bm25_retriever.invoke(query)
                  vector_docs = self.faiss_retriever.invoke(query)
                  
-                 # Simple merge and deduplicate
-                 merged = []
-                 seen = set()
-                 # Interleave them for a basic ensemble effect
-                 max_len = max(len(bm25_docs), len(vector_docs))
-                 for i in range(max_len):
-                     if i < len(vector_docs):
-                         doc = vector_docs[i]
-                         if doc.page_content not in seen:
-                             seen.add(doc.page_content)
-                             merged.append(doc)
-                     if i < len(bm25_docs):
-                         doc = bm25_docs[i]
-                         if doc.page_content not in seen:
-                             seen.add(doc.page_content)
-                             merged.append(doc)
-                 docs = merged
-            
-            results = []
-            for i, doc in enumerate(docs[:TOP_K_RETRIEVAL]):
-                results.append({
-                    "content": doc.page_content,
-                    "metadata": doc.metadata,
-                    "score": i * 0.1  # Dummy score representing rank (0 is best) since hybrid abstracts absolute distance
-                })
-                    
-            return results
+                 def rrf_score(rank: int, k: int = 60) -> float:
+                     return 1.0 / (k + rank)
+                     
+                 doc_scores = {}
+                 doc_map = {}
+                 
+                 for rank, doc in enumerate(vector_docs, 1):
+                     content = doc.page_content
+                     doc_map[content] = doc
+                     doc_scores[content] = doc_scores.get(content, 0.0) + rrf_score(rank) * VECTOR_WEIGHT
+                     
+                 for rank, doc in enumerate(bm25_docs, 1):
+                     content = doc.page_content
+                     doc_map[content] = doc
+                     doc_scores[content] = doc_scores.get(content, 0.0) + rrf_score(rank) * BM25_WEIGHT
+                     
+                 sorted_docs = sorted(doc_scores.items(), key=lambda x: x[1], reverse=True)
+                 
+                 results = []
+                 for content, score in sorted_docs[:TOP_K_RETRIEVAL]:
+                     results.append({
+                         "content": content,
+                         "metadata": doc_map[content].metadata,
+                         "score": score
+                     })
+                     
+                 return results
         except Exception as e:
             logger.error(f"Retrieval failed: {e}")
             return []

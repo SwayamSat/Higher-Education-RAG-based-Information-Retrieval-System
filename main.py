@@ -73,12 +73,6 @@ class RAGPipeline:
         # Extract Sources
         sources = set()
         for doc in relevant_docs:
-            sources.add(doc['metadata']['source'])
-        source_str = ", ".join(sources) if sources else "N/A"
-
-        # Extract Sources
-        sources = set()
-        for doc in relevant_docs:
             sources.add(doc['metadata'].get('source', 'Unknown'))
         source_str = ", ".join(sources) if sources else "N/A"
 
