@@ -1,0 +1,43 @@
+warning: Ignoring dangling temporary directory: `D:\Projects\Smart Retrival of Education System (RAG)\.venv\Lib\site-packages\~yping_extensions-4.15.0.dist-info`
+warning: Ignoring dangling temporary directory: `D:\Projects\Smart Retrival of Education System (RAG)\.venv\Lib\site-packages\~yping_extensions-4.15.0.dist-info`
+============================= test session starts =============================
+platform win32 -- Python 3.13.8, pytest-9.0.2, pluggy-1.6.0 -- D:\Projects\Smart Retrival of Education System (RAG)\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Projects\Smart Retrival of Education System (RAG)
+configfile: pyproject.toml
+plugins: anyio-4.12.1, langsmith-0.7.18, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 5 items / 2 errors
+
+=================================== ERRORS ====================================
+____________________ ERROR collecting tests/test_agents.py ____________________
+ImportError while importing test module 'D:\Projects\Smart Retrival of Education System (RAG)\tests\test_agents.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_agents.py:3: in <module>
+    from agents import RelevanceAgent, GeneratorAgent, FactCheckAgent
+agents.py:2: in <module>
+    from langchain_chroma import Chroma
+E   ModuleNotFoundError: No module named 'langchain_chroma'
+___________________ ERROR collecting tests/test_pipeline.py ___________________
+ImportError while importing test module 'D:\Projects\Smart Retrival of Education System (RAG)\tests\test_pipeline.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests\test_pipeline.py:3: in <module>
+    from main import RAGPipeline
+main.py:4: in <module>
+    from agents import RelevanceAgent, GeneratorAgent, FactCheckAgent
+agents.py:2: in <module>
+    from langchain_chroma import Chroma
+E   ModuleNotFoundError: No module named 'langchain_chroma'
+=========================== short test summary info ===========================
+ERROR tests/test_agents.py
+ERROR tests/test_pipeline.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!
+============================== 2 errors in 0.34s ==============================

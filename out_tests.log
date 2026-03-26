@@ -1,0 +1,22 @@
+warning: Ignoring dangling temporary directory: `D:\Projects\Smart Retrival of Education System (RAG)\.venv\Lib\site-packages\~yping_extensions-4.15.0.dist-info`
+warning: Ignoring dangling temporary directory: `D:\Projects\Smart Retrival of Education System (RAG)\.venv\Lib\site-packages\~yping_extensions-4.15.0.dist-info`
+============================= test session starts =============================
+platform win32 -- Python 3.13.8, pytest-9.0.2, pluggy-1.6.0 -- D:\Projects\Smart Retrival of Education System (RAG)\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: D:\Projects\Smart Retrival of Education System (RAG)
+configfile: pyproject.toml
+plugins: anyio-4.12.1, langsmith-0.7.18, asyncio-1.3.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 9 items
+
+tests/test_agents.py::test_relevance_agent_retrieve PASSED               [ 11%]
+tests/test_agents.py::test_generator_agent PASSED                        [ 22%]
+tests/test_agents.py::test_fact_check_agent PASSED                       [ 33%]
+tests/test_pipeline.py::test_pipeline_process_query PASSED               [ 44%]
+tests/test_router.py::test_route_greeting PASSED                         [ 55%]
+tests/test_router.py::test_route_keyword PASSED                          [ 66%]
+tests/test_router.py::test_route_short_ambiguous PASSED                  [ 77%]
+tests/test_router.py::test_route_math PASSED                             [ 88%]
+tests/test_router.py::test_route_normal_sentence PASSED                  [100%]
+
+============================= 9 passed in 14.03s ==============================

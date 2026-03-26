@@ -1,0 +1,342 @@
+warning: Ignoring dangling temporary directory: `D:\Projects\Smart Retrival of Education System (RAG)\.venv\Lib\site-packages\~yping_extensions-4.15.0.dist-info`
+warning: Ignoring dangling temporary directory: `D:\Projects\Smart Retrival of Education System (RAG)\.venv\Lib\site-packages\~yping_extensions-4.15.0.dist-info`
+demo - Pre-warming Ollama model...
+demo - Failed to pre-warm model: [WinError 10061] No connection could be made because the target machine actively refused it
+demo - Initializing RAG Pipeline...
+agents - Initializing Relevance Agent...
+agents - Error loading Chroma/BM25 index: Could not import sentence_transformers python package. Please install it with `pip install sentence-transformers`.
+agents - Initializing Generator Agent (llama3.2)...
+agents - Initializing Fact-Check Agent...
+demo - Loaded 15 sample queries.
+main - Processing Query: Hi, who are you?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: What can you do?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: What is the PM POSHAN scheme?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: Who is eligible for AICTE Pragati scholarship?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: How to apply for UGC grants?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: 2 + 2
+main - Query routed as: direct
+main - Processing Query: What are the benefits of the Swayam platform?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: Explain the Diksha portal.
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: Tell me about the NPTEL courses.
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: Who won the World Cup in 2022?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: What is the capital of France?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: Provide information on the Vidyanjali initiative.
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: Why?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: clarify
+main - Processing Query: Give me details
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+main - Processing Query: Can you provide a summary of the latest technical education guidelines?
+router - LLM routing failed: [WinError 10061] No connection could be made because the target machine actively refused it. Falling back to keywords.
+main - Query routed as: rag
+==================================================
+  Smart Education RAG System — Demo Runner
+==================================================
+
+[1/15] Query: Hi, who are you?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.03s]
+
+[2/15] Query: What can you do?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.03s]
+
+[3/15] Query: What is the PM POSHAN scheme?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.02s]
+
+[4/15] Query: Who is eligible for AICTE Pragati scholarship?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.03s]
+
+[5/15] Query: How to apply for UGC grants?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.03s]
+
+[6/15] Query: 2 + 2
+----------------------------------------
+Final Answer:
+I am the Government Scheme Assistant. I can help you find information on scholarships, AICTE norms, and various government policies via official documents. How can I help you today?
+
+Source:
+N/A
+
+Confidence:
+High
+
+Verification Status:
+Verified
+
+Verification Reason:
+Direct Answer
+
+[Latency: 0.00s]
+
+[7/15] Query: What are the benefits of the Swayam platform?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.02s]
+
+[8/15] Query: Explain the Diksha portal.
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.01s]
+
+[9/15] Query: Tell me about the NPTEL courses.
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.02s]
+
+[10/15] Query: Who won the World Cup in 2022?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.04s]
+
+[11/15] Query: What is the capital of France?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.02s]
+
+[12/15] Query: Provide information on the Vidyanjali initiative.
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.03s]
+
+[13/15] Query: Why?
+----------------------------------------
+Final Answer:
+Could you provide more details? (e.g., 'What is the PM POSHAN scheme?' or 'AICTE scholarships list')
+
+Source:
+N/A
+
+Confidence:
+High
+
+Verification Status:
+Verified
+
+Verification Reason:
+Clarification Request
+
+[Latency: 2.05s]
+
+[14/15] Query: Give me details
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.04s]
+
+[15/15] Query: Can you provide a summary of the latest technical education guidelines?
+----------------------------------------
+Final Answer:
+The requested information is not available in the provided official documents.
+
+Source:
+N/A
+
+Confidence:
+Low
+
+Verification Status:
+N/A
+
+Verification Reason:
+No documents found
+
+[Latency: 2.05s]
