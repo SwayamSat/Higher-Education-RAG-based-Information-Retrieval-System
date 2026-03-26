@@ -82,7 +82,7 @@ export default function UploadPage() {
               <ArrowLeft className="w-4 h-4" /> Back to Chat
             </Link>
             <h1 className="text-3xl font-bold text-text-main tracking-tight">Document Management</h1>
-            <p className="text-text-muted mt-2">Upload policies and official notices to the knowledge base.</p>
+            <p className="text-text-muted mt-2">Upload AICTE norms, UGC guidelines, and educational policies to the knowledge base.</p>
           </div>
           <button 
             onClick={handleReindex}

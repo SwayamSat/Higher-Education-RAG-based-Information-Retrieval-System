@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Gov RAG Assistant",
+  title: "EduRAG Assistant",
   description: "Smart Retrieval of Education System (RAG)",
 };
 

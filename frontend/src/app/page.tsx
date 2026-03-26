@@ -43,7 +43,7 @@ export default function Home() {
     setActiveSessionId(newId);
     setMessages([{
       id: "welcome", role: "assistant", 
-      content: "Welcome to the **Government Scheme Assistant**. Ask me about official policies, eligibility, or directives."
+      content: "Welcome to the **Higher Education Assistant**. Ask me about AICTE norms, educational policies, or university guidelines."
     }]);
   };
 
@@ -208,7 +208,7 @@ export default function Home() {
             </div>
             <div>
               <h1 className="text-lg font-bold text-text-main tracking-tight">Smart Retrieval RAG</h1>
-              <p className="text-xs text-text-muted font-medium uppercase tracking-[0.05em] hidden sm:block">Government Scheme Assistant</p>
+              <p className="text-xs text-text-muted font-medium uppercase tracking-[0.05em] hidden sm:block">Higher Ed Assistant</p>
             </div>
           </div>
           <div className="flex items-center gap-2 hidden md:flex">
@@ -244,7 +244,7 @@ export default function Home() {
                     handleSubmit(e);
                   }
                 }}
-                placeholder="Ask about official policies, eligibility, or directives..."
+                placeholder="Ask about AICTE norms, educational policies, or university guidelines..."
                 className="flex-1 max-h-48 min-h-[52px] resize-none bg-transparent px-4 py-3 outline-none text-text-main placeholder:text-text-muted"
                 rows={1}
               />

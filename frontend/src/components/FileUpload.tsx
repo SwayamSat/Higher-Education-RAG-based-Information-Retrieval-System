@@ -61,9 +61,9 @@ export function FileUpload({ onUpload, isUploading }: FileUploadProps) {
           disabled={isUploading}
         >
           <option value="General">General</option>
-          <option value="Education">Education</option>
-          <option value="Finance">Finance</option>
-          <option value="Health">Health</option>
+          <option value="AICTE">AICTE</option>
+          <option value="UGC">UGC</option>
+          <option value="University">University</option>
         </select>
       </div>
 
