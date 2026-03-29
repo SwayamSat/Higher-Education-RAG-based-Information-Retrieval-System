@@ -1,9 +1,9 @@
 import os
 import glob
-from langchain_community.document_loaders import PyPDFLoader, UnstructuredPDFLoader, Docx2txtLoader, UnstructuredExcelLoader
+from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_experimental.text_splitter import SemanticChunker
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_chroma import Chroma
 from config import DATA_DIR, CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, CHUNK_SIZE, CHUNK_OVERLAP, USE_SEMANTIC_CHUNKER
 import logging
@@ -13,6 +13,16 @@ from datetime import datetime
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# Check once at startup if Unstructured OCR is actually available
+_HAS_UNSTRUCTURED_PDF = False
+try:
+    from unstructured.partition.pdf import partition_pdf  # noqa: F401
+    from langchain_community.document_loaders import UnstructuredPDFLoader
+    _HAS_UNSTRUCTURED_PDF = True
+    logger.info("Unstructured PDF loader is available — OCR-capable loading enabled.")
+except ImportError:
+    logger.info("Unstructured PDF extras not installed — using PyPDFLoader for all PDFs.")
 
 def load_documents():
     """
@@ -40,12 +50,15 @@ def load_documents():
             ext = Path(file_path).suffix.lower()
             
             if ext == ".pdf":
-                # Use Unstructured for OCR support on scanned PDFs
-                try:
-                    loader = UnstructuredPDFLoader(file_path, mode="elements")
-                    docs = loader.load()
-                except Exception as unstructured_err:
-                    logger.warning(f"Unstructured OCR failed ({unstructured_err}), falling back to PyPDFLoader...")
+                if _HAS_UNSTRUCTURED_PDF:
+                    try:
+                        loader = UnstructuredPDFLoader(file_path, mode="elements")
+                        docs = loader.load()
+                    except Exception as unstructured_err:
+                        logger.warning(f"Unstructured OCR failed ({unstructured_err}), falling back to PyPDFLoader...")
+                        loader = PyPDFLoader(file_path)
+                        docs = loader.load()
+                else:
                     loader = PyPDFLoader(file_path)
                     docs = loader.load()
             elif ext == ".docx":
@@ -88,8 +101,8 @@ def create_index():
     logger.info(f"Loaded {len(raw_documents)} pages from PDFs.")
 
     # 2. Split Text
-    logger.info(f"Generating embeddings for semantic chunking using {EMBEDDING_MODEL_NAME}...")
-    embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_NAME)
+    logger.info(f"Generating embeddings for semantic chunking using FastEmbed ({EMBEDDING_MODEL_NAME})...")
+    embeddings = FastEmbedEmbeddings(model_name=EMBEDDING_MODEL_NAME)
     
     if USE_SEMANTIC_CHUNKER:
         try:

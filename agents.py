@@ -7,7 +7,7 @@ from collections import deque
 from config import CHROMA_DB_PATH, CHROMA_COLLECTION_NAME, EMBEDDING_MODEL_NAME, TOP_K_RETRIEVAL, LLM_MODEL_NAME, LLM_BASE_URL, SCORE_THRESHOLD, BM25_WEIGHT, VECTOR_WEIGHT, USE_LANGFUSE, LANGFUSE_PUBLIC_KEY, LANGFUSE_SECRET_KEY, LANGFUSE_HOST
 import logging
 import time
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 
 logger = logging.getLogger(__name__)
 
@@ -48,7 +48,7 @@ class RelevanceAgent:
     def __init__(self):
         logger.info("Initializing Relevance Agent...")
         try:
-            self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL_NAME)
+            self.embeddings = FastEmbedEmbeddings(model_name=EMBEDDING_MODEL_NAME)
             self.vector_store = Chroma(
                 persist_directory=CHROMA_DB_PATH,
                 collection_name=CHROMA_COLLECTION_NAME,
