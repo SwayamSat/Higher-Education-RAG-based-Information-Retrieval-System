@@ -137,13 +137,17 @@ export default function Home() {
               let data = {};
               try { data = dataStr ? JSON.parse(dataStr) : {}; } catch (e) {}
               
+              if (eventType === "token") {
+                currentAnswer += (data as any).text;
+              }
+
               setMessages(prev => {
                 const updatedMsgs = prev.map(msg => {
                   if (msg.id !== tempAssistantId) return msg;
                   let updated = { ...msg };
                   
                   if (eventType === "sources") updated.sources = (data as any).sources;
-                  else if (eventType === "token") Object.assign(updated, { content: currentAnswer += (data as any).text });
+                  else if (eventType === "token") updated.content = currentAnswer;
                   else if (eventType === "verification") updated.verification = { status: (data as any).status, reason: (data as any).reason };
                   else if (eventType === "steps") updated.pipeline_steps = (data as any).steps;
                   else if (eventType === "done") updated.isStreaming = false;

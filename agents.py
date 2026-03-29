@@ -216,22 +216,19 @@ Answer:"""
             logger.error(f"Error streaming answer: {e}")
             yield f"\n[Error: {e}]"
 
+import json as _json
 from models import VerificationResult
-from langchain_core.output_parsers import PydanticOutputParser
-from langchain_core.exceptions import OutputParserException
 
 class FactCheckAgent:
     def __init__(self):
         logger.info("Initializing Fact-Check Agent...")
-        self.llm = ChatOllama(model=LLM_MODEL_NAME, base_url=LLM_BASE_URL, temperature=0.0)
-        self.parser = PydanticOutputParser(pydantic_object=VerificationResult)
+        # Use native JSON mode — Ollama enforces valid JSON output directly
+        self.llm = ChatOllama(model=LLM_MODEL_NAME, base_url=LLM_BASE_URL, temperature=0.0, format="json")
         
         self.verify_prompt = PromptTemplate(
             input_variables=["context", "question", "answer"],
-            partial_variables={"format_instructions": self.parser.get_format_instructions()},
-            template="""You are a strict fact-checker. 
+            template="""You are a strict fact-checker for a government education document system.
 Verify if the generated answer is fully supported by the provided context.
-Check for hallucinations, incorrect numbers, or unsupported claims.
 
 Context:
 {context}
@@ -240,34 +237,59 @@ Question: {question}
 
 Generated Answer: {answer}
 
-Task:
-1. Does the answer directly answer the question using ONLY the context?
-2. Are there any hallucinations?
+Respond with a JSON object with exactly two keys:
+- "status": one of "Verified", "Unverified", or "Partial"
+- "reason": a short one-sentence explanation
 
-{format_instructions}
+Example: {{"status": "Verified", "reason": "The answer is directly supported by the context."}}
 """
         )
 
     def verify(self, query: str, answer: str, context_docs: list, query_id="default", iteration=1) -> VerificationResult:
         if "not available in the provided official documents" in answer:
-             return VerificationResult(status="Verified", reason="System correctly identified missing info.")
+            return VerificationResult(status="Verified", reason="System correctly identified missing info.")
 
         context_str = ""
         for doc in context_docs:
             context_str += f"{doc['content']}\n"
-            
+
         prompt = self.verify_prompt.format(context=context_str, question=query, answer=answer)
-        
+
         logger.info("Verifying answer...")
+        raw_text = ""
         try:
             cb = get_langfuse_callback(query_id, "FactCheckAgent", iteration)
             config = {"callbacks": [cb]} if cb else None
             response = call_llm_with_retry(self.llm, prompt, config=config)
-            result = self.parser.invoke(response)
-            return result
-        except OutputParserException as e:
-            logger.error(f"Failed to parse verification output: {e}")
-            return VerificationResult(status="Unverified", reason="Parsing failed")
+            raw_text = response.content.strip()
+
+            data = _json.loads(raw_text)
+            status = data.get("status", "Unverified")
+            reason = data.get("reason", "No reason provided.")
+
+            # Normalise to allowed Literal values
+            if status not in ("Verified", "Unverified", "Partial", "Blocked"):
+                status = "Unverified"
+
+            return VerificationResult(status=status, reason=reason)
+
+        except _json.JSONDecodeError:
+            # Last-resort: extract first {...} block via regex
+            import re
+            match = re.search(r'\{.*?\}', raw_text, re.DOTALL)
+            if match:
+                try:
+                    data = _json.loads(match.group(0))
+                    status = data.get("status", "Unverified")
+                    reason = data.get("reason", "Partial parse.")
+                    if status not in ("Verified", "Unverified", "Partial", "Blocked"):
+                        status = "Unverified"
+                    return VerificationResult(status=status, reason=reason)
+                except Exception:
+                    pass
+            logger.error(f"FactCheckAgent JSON decode failed. Raw: {raw_text}")
+            return VerificationResult(status="Unverified", reason="Could not parse fact-check response.")
+
         except Exception as e:
             logger.error(f"Verification systemic error: {e}")
-            return VerificationResult(status="Unverified", reason=f"Verification systemic error: {str(e)}")
+            return VerificationResult(status="Unverified", reason=f"Systemic error: {str(e)}")
