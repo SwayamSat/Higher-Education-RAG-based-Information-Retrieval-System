@@ -66,7 +66,7 @@ def index_single_document_bg(doc_id: str, file_path: str):
         db.close()
 
 def list_documents(db: Session):
-    return db.query(DocumentModel).all()
+    return {"items": db.query(DocumentModel).all()}
 
 def delete_document(doc_id: str, db: Session) -> bool:
     doc = db.query(DocumentModel).filter(DocumentModel.id == doc_id).first()

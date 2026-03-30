@@ -12,7 +12,7 @@ from db_models import FeedbackModel, DocumentModel
 from typing import Optional
 import os
 
-from models import QueryRequest, QueryResponse, SourceDocument, VerificationResult, PipelineStep
+from models import QueryRequest, QueryResponse, SourceDocument, VerificationResult, PipelineStep, DocumentList
 from main import RAGPipeline
 
 # Setup basic logging for the API layer
@@ -303,7 +303,7 @@ async def upload_document(
     background_tasks.add_task(index_single_document_bg, doc_id, file_path)
     return {"status": "success", "doc_id": doc_id, "message": "File uploaded and indexing started."}
 
-@app.get("/documents")
+@app.get("/documents", response_model=DocumentList)
 async def get_documents(db: Session = Depends(get_db)):
     return list_documents(db)
 

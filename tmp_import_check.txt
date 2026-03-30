@@ -1,0 +1,13 @@
+﻿.\.venv\Scripts\python.exe : 2026-03-30 15:05:48,884 - indexer - INFO 
+- Unstructured PDF extras not installed ù using PyPDFLoader for all 
+PDFs.
+At line:1 char:1
++ .\.venv\Scripts\python.exe -c "import api; print('api.py imported 
+suc ...
++ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-03-30 15:0...r for  
+   all PDFs.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+api.py imported successfully

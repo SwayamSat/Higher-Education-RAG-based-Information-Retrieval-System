@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from typing import Literal, Optional, List, Dict
 
+from datetime import datetime
+
 class QueryRequest(BaseModel):
     query: str
     top_k: int = 5
@@ -15,6 +17,19 @@ class SourceDocument(BaseModel):
 class VerificationResult(BaseModel):
     status: Literal["Verified", "Unverified", "Partial", "Blocked"]
     reason: str
+
+class DocumentInfo(BaseModel):
+    id: str
+    filename: str
+    department: str
+    status: str
+    upload_date: datetime
+
+    class Config:
+        from_attributes = True
+
+class DocumentList(BaseModel):
+    items: List[DocumentInfo]
 
 class PipelineStep(BaseModel):
     agent: str

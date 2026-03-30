@@ -12,7 +12,7 @@ class DocumentModel(Base):
     content_hash = Column(String, unique=True, index=True)
     chunk_count = Column(Integer, default=0)
     status = Column(String, default="uploaded") # uploaded, indexing, indexed, error
-    uploaded_at = Column(DateTime, default=datetime.datetime.utcnow)
+    upload_date = Column(DateTime, default=datetime.datetime.utcnow)
 
 class FeedbackModel(Base):
     __tablename__ = "feedback"

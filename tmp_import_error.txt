@@ -1,0 +1,20 @@
+﻿.\.venv\Scripts\python.exe : 2026-03-30 15:05:01,354 - indexer - INFO 
+- Unstructured PDF extras not installed ù using PyPDFLoader for all 
+PDFs.
+At line:1 char:1
++ .\.venv\Scripts\python.exe -c "import api" 2>&1 | Out-File 
+-FilePath  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (2026-03-30 15:0...r for  
+   all PDFs.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import api
+  File "D:\Projects\Smart Retrival of Education System (RAG)\api.py", 
+line 306, in <module>
+    from models import QueryRequest, QueryResponse, FeedbackRating, 
+DocumentList
+ImportError: cannot import name 'FeedbackRating' from 'models' 
+(D:\Projects\Smart Retrival of Education System (RAG)\models.py)
