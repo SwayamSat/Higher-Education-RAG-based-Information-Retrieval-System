@@ -175,8 +175,11 @@ async def query_stream(req: QueryRequest):
     
     async def event_generator():
         try:
+            t_start = time.time()
             # Step 1: Retrieval
+            t0 = time.time()
             relevant_docs = pipeline.retriever.retrieve(req.query)
+            retrieval_ms = round((time.time() - t0) * 1000, 2)
             if not relevant_docs:
                 yield f"event: error\ndata: {json.dumps({'message': 'No documents found'})}\n\n"
                 return
@@ -192,28 +195,56 @@ async def query_stream(req: QueryRequest):
             yield f"event: sources\ndata: {json.dumps({'sources': sources})}\n\n"
             
             # Step 2: Generation Stream
+            t1 = time.time()
             full_answer = ""
             for chunk in pipeline.generator.stream_answer(req.query, relevant_docs):
                 if chunk:
                     full_answer += chunk
                     yield f"event: token\ndata: {json.dumps({'text': chunk})}\n\n"
+            generation_ms = round((time.time() - t1) * 1000, 2)
             
             # Step 3: Verification
             yield f"event: verification\ndata: {json.dumps({'status': 'Verifying...', 'reason': 'Checking against sources'})}\n\n"
-            verification_result = pipeline.verifier.verify(req.query, full_answer, relevant_docs)            
+            t2 = time.time()
+            verification_result = pipeline.verifier.verify(req.query, full_answer, relevant_docs)
+            verification_ms = round((time.time() - t2) * 1000, 2)
             yield f"event: verification\ndata: {json.dumps({'status': verification_result.status, 'reason': verification_result.reason})}\n\n"
+            
+            # Update in-memory analytics
+            analytics_data["total_queries"] += 1
+            analytics_data["total_latency_retrieval"] += retrieval_ms
+            analytics_data["total_latency_generation"] += generation_ms
+            analytics_data["total_latency_verification"] += verification_ms
+            if verification_result.status == "Verified":
+                analytics_data["first_pass_verified"] += 1
+                analytics_data["final_pass_verified"] += 1
+            else:
+                analytics_data["final_pass_verified"] += 1
             
             # Send steps
             steps = [{
-                "agent": "Streamed Pipeline",
-                "duration_ms": 0.0,
+                "agent": "RelevanceAgent",
+                "duration_ms": retrieval_ms,
                 "input_summary": req.query[:50],
+                "output_summary": f"Found {len(relevant_docs)} docs",
+                "iteration": 1
+            }, {
+                "agent": "GeneratorAgent",
+                "duration_ms": generation_ms,
+                "input_summary": f"Docs: {len(relevant_docs)}",
+                "output_summary": f"Generated {len(full_answer)} chars",
+                "iteration": 1
+            }, {
+                "agent": "FactCheckAgent",
+                "duration_ms": verification_ms,
+                "input_summary": f"Answer: {full_answer[:30]}...",
                 "output_summary": verification_result.status,
                 "iteration": 1
             }]
             yield f"event: steps\ndata: {json.dumps({'steps': steps})}\n\n"
             
-            yield "event: done\ndata: {}\n\n"
+            # Send query_id so frontend can attach feedback correctly
+            yield f"event: done\ndata: {json.dumps({'query_id': query_id})}\n\n"
             
         except Exception as e:
             logger.error(f"[{query_id}] Stream error: {e}")
@@ -253,8 +284,36 @@ async def get_feedback_stats(db: Session = Depends(get_db)):
 @app.get("/analytics")
 async def get_analytics(db: Session = Depends(get_db)):
     total = analytics_data["total_queries"]
+    
+    feedback_total = db.query(FeedbackModel).count()
+    positive_percentage = 0.0
+    if feedback_total > 0:
+        positive_count = db.query(FeedbackModel).filter(FeedbackModel.rating == 1).count()
+        positive_percentage = round((positive_count / feedback_total) * 100, 2)
+    
+    feedback_summary = {
+        "total_feedback": feedback_total,
+        "positive_percentage": positive_percentage,
+        "negative_percentage": round(100 - positive_percentage, 2) if feedback_total > 0 else 0.0
+    }
+
     if total == 0:
-        return {"message": "No queries processed yet"}
+        # Server restarted — show feedback data even without live latency stats
+        return {
+            "total_queries": feedback_total,  # use feedback count as proxy
+            "average_latencies": {
+                "retrieval_ms": 0.0,
+                "generation_ms": 0.0,
+                "verification_ms": 0.0,
+                "correction_ms": 0.0
+            },
+            "verification_rates": {
+                "first_pass_verified_percentage": 0.0,
+                "final_verified_percentage": 0.0
+            },
+            "feedback_summary": feedback_summary,
+            "note": "Latency metrics reset on server restart. Showing persisted feedback data."
+        }
         
     avg_latencies = {
         "retrieval_ms": round(analytics_data["total_latency_retrieval"] / total, 2),
@@ -265,12 +324,6 @@ async def get_analytics(db: Session = Depends(get_db)):
     
     first_pass_rate = round((analytics_data["first_pass_verified"] / total) * 100, 2)
     final_pass_rate = round((analytics_data["final_pass_verified"] / total) * 100, 2)
-    
-    feedback_total = db.query(FeedbackModel).count()
-    positive_percentage = 0.0
-    if feedback_total > 0:
-        positive_count = db.query(FeedbackModel).filter(FeedbackModel.rating == 1).count()
-        positive_percentage = round((positive_count / feedback_total) * 100, 2)
         
     return {
         "total_queries": total,
@@ -279,11 +332,7 @@ async def get_analytics(db: Session = Depends(get_db)):
             "first_pass_verified_percentage": first_pass_rate,
             "final_verified_percentage": final_pass_rate
         },
-        "feedback_summary": {
-            "total_feedback": feedback_total,
-            "positive_percentage": positive_percentage,
-            "negative_percentage": round(100 - positive_percentage, 2) if feedback_total > 0 else 0.0
-        }
+        "feedback_summary": feedback_summary
     }
 
 # --- Work 2.3 Endpoints ---

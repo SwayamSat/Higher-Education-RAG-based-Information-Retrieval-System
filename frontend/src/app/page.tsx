@@ -150,7 +150,10 @@ export default function Home() {
                   else if (eventType === "token") updated.content = currentAnswer;
                   else if (eventType === "verification") updated.verification = { status: (data as any).status, reason: (data as any).reason };
                   else if (eventType === "steps") updated.pipeline_steps = (data as any).steps;
-                  else if (eventType === "done") updated.isStreaming = false;
+                  else if (eventType === "done") {
+                    updated.isStreaming = false;
+                    if ((data as any).query_id) updated.query_id = (data as any).query_id;
+                  }
                   else if (eventType === "error") Object.assign(updated, { isError: true, content: currentAnswer + `\n\n**Error:** ${(data as any).message}`, isStreaming: false });
                   
                   return updated;

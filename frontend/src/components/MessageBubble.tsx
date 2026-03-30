@@ -22,6 +22,7 @@ export type Message = {
   id: string;
   role: "user" | "assistant";
   content: string;
+  query_id?: string;  // backend-assigned UUID for feedback
   sources?: SourceDocument[];
   confidence?: "High" | "Medium" | "Low";
   verification?: VerificationResult;
@@ -52,10 +53,11 @@ export function MessageBubble({ message }: { message: Message }) {
 
   const handleFeedback = async (isPositive: boolean) => {
     try {
+      const feedbackQueryId = message.query_id || message.id;
       await fetch("http://localhost:8000/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query_id: message.id, rating: isPositive ? 1 : 0 }),
+        body: JSON.stringify({ query_id: feedbackQueryId, rating: isPositive ? 1 : 0 }),
       });
     } catch (e) {
       console.error("Failed to submit feedback", e);
